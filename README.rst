@@ -6,16 +6,16 @@ bam_collapsing
 .. image:: https://img.shields.io/pypi/v/bam_collapsing.svg
         :target: https://pypi.python.org/pypi/bam_collapsing
 
-.. image:: https://img.shields.io/travis/rhshah/bam_collapsing.svg
-        :target: https://travis-ci.org/rhshah/bam_collapsing
+.. image:: https://img.shields.io/travis/msk-access/bam_collapsing.svg
+        :target: https://travis-ci.org/msk-access/bam_collapsing
 
 .. image:: https://readthedocs.org/projects/bam-collapsing/badge/?version=latest
         :target: https://bam-collapsing.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/rhshah/bam_collapsing/shield.svg
-     :target: https://pyup.io/repos/github/rhshah/bam_collapsing/
+.. image:: https://pyup.io/repos/github/msk-access/bam_collapsing/shield.svg
+     :target: https://pyup.io/repos/github/msk-access/bam_collapsing/
      :alt: Updates
 
 
