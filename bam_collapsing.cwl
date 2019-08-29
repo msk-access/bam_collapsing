@@ -11,29 +11,29 @@ inputs:
       - .fai
       - ^.dict
     'sbg:x': 0
-    'sbg:y': 213.65625
+    'sbg:y': 213.4375
   - id: bed_file
     type: File
     'sbg:x': 0
-    'sbg:y': 1602.421875
+    'sbg:y': 1600.9375
   - id: bam
     type: File
     secondaryFiles:
       - ^.bai
     'sbg:x': 0
-    'sbg:y': 1709.25
+    'sbg:y': 1707.65625
   - id: min_map_quality
     type: int
     'sbg:x': 0
-    'sbg:y': 1281.9375
+    'sbg:y': 1280.7578125
   - id: min_base_quality
     type: int
     'sbg:x': 0
-    'sbg:y': 1495.59375
+    'sbg:y': 1494.2109375
   - id: mismatches
     type: int
     'sbg:x': 0
-    'sbg:y': 1175.109375
+    'sbg:y': 1174.03125
   - id: wobble
     type: int
     'sbg:x': 0
@@ -41,130 +41,160 @@ inputs:
   - id: min_consensus_percent
     type: int
     'sbg:x': 0
-    'sbg:y': 1388.765625
+    'sbg:y': 1387.484375
   - id: key
     type:
       type: array
       items: string
       inputBinding:
         prefix: '-k'
-    'sbg:x': 686.4918212890625
-    'sbg:y': 1013.0390625
+    'sbg:x': 686.4761962890625
+    'sbg:y': 1012.203125
   - id: sort_first_pass_output_file_name
     type: string
     'sbg:x': 0
-    'sbg:y': 106.828125
+    'sbg:y': 106.71875
   - id: output_name_collapsed_gzip_R1
     type: string?
     'sbg:x': 0
-    'sbg:y': 1068.28125
+    'sbg:y': 1067.3046875
   - id: output_name_collapsed_gzip_R2
     type: string?
     'sbg:x': 0
-    'sbg:y': 961.453125
+    'sbg:y': 960.5703125
   - id: read_group_sequnecing_center
     type: string
     'sbg:x': 0
-    'sbg:y': 320.484375
+    'sbg:y': 320.1640625
   - id: read_group_sequencing_platform
     type: string
     'sbg:x': 0
-    'sbg:y': 427.3125
+    'sbg:y': 426.8984375
   - id: read_group_sample_name
     type: string
     'sbg:x': 0
-    'sbg:y': 534.140625
+    'sbg:y': 533.6328125
   - id: read_group_platform_unit
     type: string
     'sbg:x': 0
-    'sbg:y': 640.96875
+    'sbg:y': 640.3671875
   - id: read_group_library
     type: int
     'sbg:x': 0
-    'sbg:y': 747.796875
+    'sbg:y': 747.1015625
   - id: read_group_identifier
     type: string
     'sbg:x': 0
-    'sbg:y': 854.625
+    'sbg:y': 853.8359375
 outputs:
   - id: second_pass_insertions
     outputSource:
       - marianas_collapsing_second_pass_cwl/second_pass_insertions
     type: File
-    'sbg:x': 1141.263671875
-    'sbg:y': 466.7265625
+    'sbg:x': 1141.248046875
+    'sbg:y': 466.296875
   - id: second_pass_alt_alleles
     outputSource:
       - marianas_collapsing_second_pass_cwl/second_pass_alt_alleles
     type: File
-    'sbg:x': 1141.263671875
-    'sbg:y': 573.5546875
+    'sbg:x': 1141.248046875
+    'sbg:y': 573.015625
   - id: collapsed_fastq_2
     outputSource:
       - marianas_collapsing_second_pass_cwl/collapsed_fastq_2
     type: File
-    'sbg:x': 1141.263671875
-    'sbg:y': 1135.6953125
+    'sbg:x': 1141.248046875
+    'sbg:y': 1134.640625
   - id: collapsed_fastq_1
     outputSource:
       - marianas_collapsing_second_pass_cwl/collapsed_fastq_1
     type: File
-    'sbg:x': 1141.263671875
-    'sbg:y': 1242.5234375
+    'sbg:x': 1141.248046875
+    'sbg:y': 1241.359375
   - id: pileup_without_duplicates
     outputSource:
       - waltz_pileupmetrics/pileup_without_duplicates
     type: File
-    'sbg:x': 686.4918212890625
-    'sbg:y': 482.5546875
+    'sbg:x': 686.4761962890625
+    'sbg:y': 482.0078125
   - id: intervals_without_duplicates
     outputSource:
       - waltz_pileupmetrics/intervals_without_duplicates
     type: File
-    'sbg:x': 686.4918212890625
-    'sbg:y': 1119.8671875
+    'sbg:x': 686.4761962890625
+    'sbg:y': 1118.9296875
   - id: intervals
     outputSource:
       - waltz_pileupmetrics/intervals
     type: File
-    'sbg:x': 686.4918212890625
-    'sbg:y': 1226.6953125
+    'sbg:x': 686.4761962890625
+    'sbg:y': 1225.6484375
   - id: first_pass_insertions
     outputSource:
       - marianas_collapsing_first_pass_cwl/first_pass_insertions
     type: File
-    'sbg:x': 1141.263671875
-    'sbg:y': 1028.8671875
+    'sbg:x': 1141.248046875
+    'sbg:y': 1027.921875
   - id: alt_allele_file
     outputSource:
       - marianas_collapsing_first_pass_cwl/alt_allele_file
     type: File
-    'sbg:x': 1141.263671875
-    'sbg:y': 1349.3515625
+    'sbg:x': 1141.248046875
+    'sbg:y': 1348.078125
   - id: first_pass_output_dir
     outputSource:
       - marianas_collapsing_first_pass_cwl/first_pass_output_dir
     type: Directory
-    'sbg:x': 1141.263671875
-    'sbg:y': 922.0390625
-  - id: output_file_1
+    'sbg:x': 1141.248046875
+    'sbg:y': 921.203125
+  - id: gzip_read1
     outputSource:
-      - gzip_1/output_file
+      - gzip_Read1/output_file
     type: File
-    'sbg:x': 1386.576171875
-    'sbg:y': 805.625
-  - id: output_file_2
+    'sbg:x': 1386.560546875
+    'sbg:y': 804.8203125
+  - id: gzip_read2
     outputSource:
-      - gzip_2/output_file
+      - gzip_Read2/output_file
     type: File
-    'sbg:x': 1386.576171875
-    'sbg:y': 698.796875
-  - id: bam_1
+    'sbg:x': 1386.560546875
+    'sbg:y': 698.0859375
+  - id: unfiltered-bam
     outputSource:
       - abra_fx_cwl/bam
     type: File
-    'sbg:x': 1983.9521484375
-    'sbg:y': 854.625
+    'sbg:x': 1983.9365234375
+    'sbg:y': 733.1015625
+  - id: simplex-bam
+    outputSource:
+      - marianas_separate_bams_1_8_1/simplex-bam
+    type: File
+    'sbg:x': 2297.791259765625
+    'sbg:y': 626.3671875
+  - id: duplex-bam
+    outputSource:
+      - marianas_separate_bams_1_8_1/duplex-bam
+    type: File
+    'sbg:x': 2297.791259765625
+    'sbg:y': 974.5546875
+  - id: alignment_metrics_unfiltered
+    outputSource:
+      - picard_collect_alignment_summary_metrics_unfiltered/alignment_metrics
+    type: File
+    'sbg:x': 2297.791259765625
+    'sbg:y': 1081.28125
+  - id: alignment_metrics_simplex
+    outputSource:
+      - picard_collect_alignment_summary_metrics_simplex/alignment_metrics
+    type: File
+    'sbg:x': 2606.94287109375
+    'sbg:y': 800.453125
+  - id: alignment_metrics_duplex
+    outputSource:
+      - picard_collect_alignment_summary_metrics_duplex/alignment_metrics
+    type: File
+    'sbg:x': 2606.94287109375
+    'sbg:y': 907.1875
 steps:
   - id: waltz_pileupmetrics
     in:
@@ -184,8 +214,8 @@ steps:
     run: >-
       command_line_tools/waltz_pileupmatrices_3.1.1/waltz_pileupmatrices_3.1.1.cwl
     label: waltz_pileupmetrics
-    'sbg:x': 319.171875
-    'sbg:y': 833.625
+    'sbg:x': 319.15625
+    'sbg:y': 832.828125
   - id: marianas_collapsing_first_pass_cwl
     in:
       - id: input_bam
@@ -211,8 +241,8 @@ steps:
       - id: first_pass_output_dir
     run: >-
       command_line_tools/marianas_collapsing_first_pass_1.8.1/marianas_first_pass.cwl
-    'sbg:x': 686.4918212890625
-    'sbg:y': 857.2109375
+    'sbg:x': 686.4761962890625
+    'sbg:y': 856.46875
   - id: sort
     in:
       - id: input
@@ -230,8 +260,8 @@ steps:
     out:
       - id: sorted
     run: command_line_tools/utilities_ubuntu_18.04/sort.cwl
-    'sbg:x': 1141.263671875
-    'sbg:y': 345.8984375
+    'sbg:x': 1141.248046875
+    'sbg:y': 345.578125
   - id: marianas_collapsing_second_pass_cwl
     in:
       - id: input_bam
@@ -259,9 +289,9 @@ steps:
       - id: second_pass_insertions
     run: >-
       command_line_tools/marianas_collapsing_second_pass_1.8.1/marianas_second_pass.cwl
-    'sbg:x': 686.4918212890625
-    'sbg:y': 645.3828125
-  - id: gzip_1
+    'sbg:x': 686.4761962890625
+    'sbg:y': 644.734375
+  - id: gzip_Read1
     in:
       - id: input
         source: marianas_collapsing_second_pass_cwl/collapsed_fastq_1
@@ -270,10 +300,10 @@ steps:
     out:
       - id: output_file
     run: command_line_tools/utilities_ubuntu_18.04/gzip.cwl
-    label: gzip_1
-    'sbg:x': 1141.263671875
-    'sbg:y': 808.2109375
-  - id: gzip_2
+    label: gzip_Read1
+    'sbg:x': 1141.248046875
+    'sbg:y': 807.4765625
+  - id: gzip_Read2
     in:
       - id: input
         source: marianas_collapsing_second_pass_cwl/collapsed_fastq_2
@@ -282,17 +312,17 @@ steps:
     out:
       - id: output_file
     run: command_line_tools/utilities_ubuntu_18.04/gzip.cwl
-    label: gzip_2
-    'sbg:x': 1141.263671875
-    'sbg:y': 687.3828125
+    label: gzip_Read2
+    'sbg:x': 1141.248046875
+    'sbg:y': 686.7421875
   - id: alignment
     in:
       - id: reference
         source: referece_fasta
       - id: reads
         source:
-          - gzip_1/output_file
-          - gzip_2/output_file
+          - gzip_Read1/output_file
+          - gzip_Read2/output_file
       - id: P
         default: true
       - id: M
@@ -317,8 +347,8 @@ steps:
       - id: bam
     run: subworkflows/alignment.cwl
     label: alignment
-    'sbg:x': 1616
-    'sbg:y': 1131
+    'sbg:x': 1386.560546875
+    'sbg:y': 960.5546875
   - id: abra_fx_cwl
     in:
       - id: input_bam
@@ -334,8 +364,58 @@ steps:
       - id: bam
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 1775.50390625
-    'sbg:y': 847.625
+    'sbg:x': 1775.488037109375
+    'sbg:y': 846.828125
+  - id: marianas_separate_bams_1_8_1
+    in:
+      - id: input_bam
+        source: abra_fx_cwl/bam
+    out:
+      - id: duplex-bam
+      - id: simplex-bam
+    run: >-
+      command_line_tools/marianas_separate_bams_1.8.1/marianas_separate_bams_1.8.1.cwl
+    'sbg:x': 1983.9365234375
+    'sbg:y': 967.5546875
+  - id: picard_collect_alignment_summary_metrics_unfiltered
+    in:
+      - id: input
+        source: abra_fx_cwl/bam
+      - id: reference_sequence
+        source: referece_fasta
+    out:
+      - id: alignment_metrics
+    run: >-
+      command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
+    label: picard_collect_alignment_summary_metrics_unflitered
+    'sbg:x': 1983.9365234375
+    'sbg:y': 846.828125
+  - id: picard_collect_alignment_summary_metrics_duplex
+    in:
+      - id: input
+        source: marianas_separate_bams_1_8_1/duplex-bam
+      - id: reference_sequence
+        source: referece_fasta
+    out:
+      - id: alignment_metrics
+    run: >-
+      command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
+    label: picard_collect_alignment_summary_metrics_duplex
+    'sbg:x': 2297.791259765625
+    'sbg:y': 860.828125
+  - id: picard_collect_alignment_summary_metrics_simplex
+    in:
+      - id: input
+        source: marianas_separate_bams_1_8_1/simplex-bam
+      - id: reference_sequence
+        source: referece_fasta
+    out:
+      - id: alignment_metrics
+    run: >-
+      command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
+    label: picard_collect_alignment_summary_metrics_simplex
+    'sbg:x': 2297.791259765625
+    'sbg:y': 740.09375
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
