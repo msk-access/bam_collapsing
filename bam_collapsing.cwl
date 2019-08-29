@@ -5,11 +5,16 @@ label: bam_collapsing
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
 inputs:
-  - id: referece_fasta
+  - id: reference_fasta
     type: File
     secondaryFiles:
       - .fai
       - ^.dict
+      - .amb
+      - .ann
+      - .bwt
+      - .pac
+      - .sa
     'sbg:x': 0
     'sbg:y': 213.4375
   - id: bed_file
@@ -163,45 +168,45 @@ outputs:
     outputSource:
       - abra_fx_cwl/bam
     type: File
-    'sbg:x': 1983.9365234375
+    'sbg:x': 1983.936279296875
     'sbg:y': 733.1015625
   - id: simplex-bam
     outputSource:
       - marianas_separate_bams_1_8_1/simplex-bam
     type: File
-    'sbg:x': 2297.791259765625
+    'sbg:x': 2297.791015625
     'sbg:y': 626.3671875
   - id: duplex-bam
     outputSource:
       - marianas_separate_bams_1_8_1/duplex-bam
     type: File
-    'sbg:x': 2297.791259765625
+    'sbg:x': 2297.791015625
     'sbg:y': 974.5546875
   - id: alignment_metrics_unfiltered
     outputSource:
       - picard_collect_alignment_summary_metrics_unfiltered/alignment_metrics
     type: File
-    'sbg:x': 2297.791259765625
+    'sbg:x': 2297.791015625
     'sbg:y': 1081.28125
   - id: alignment_metrics_simplex
     outputSource:
       - picard_collect_alignment_summary_metrics_simplex/alignment_metrics
     type: File
-    'sbg:x': 2606.94287109375
+    'sbg:x': 2606.942626953125
     'sbg:y': 800.453125
   - id: alignment_metrics_duplex
     outputSource:
       - picard_collect_alignment_summary_metrics_duplex/alignment_metrics
     type: File
-    'sbg:x': 2606.94287109375
+    'sbg:x': 2606.942626953125
     'sbg:y': 907.1875
 steps:
   - id: waltz_pileupmetrics
     in:
       - id: bam
         source: bam
-      - id: referece_fasta
-        source: referece_fasta
+      - id: reference_fasta
+        source: reference_fasta
       - id: min_map_quality
         source: min_map_quality
       - id: bed_file
@@ -233,7 +238,7 @@ steps:
       - id: min_consensus_percent
         source: min_consensus_percent
       - id: reference_fasta
-        source: referece_fasta
+        source: reference_fasta
     out:
       - id: first_pass_output_file
       - id: alt_allele_file
@@ -279,7 +284,7 @@ steps:
       - id: min_consensus_percent
         source: min_consensus_percent
       - id: reference_fasta
-        source: referece_fasta
+        source: reference_fasta
       - id: first_pass_file
         source: sort/sorted
     out:
@@ -318,7 +323,7 @@ steps:
   - id: alignment
     in:
       - id: reference
-        source: referece_fasta
+        source: reference_fasta
       - id: reads
         source:
           - gzip_Read1/output_file
@@ -355,7 +360,7 @@ steps:
         source:
           - alignment/bam
       - id: reference_fasta
-        source: referece_fasta
+        source: reference_fasta
       - id: bam_index
         default: true
       - id: option_bedgraph
@@ -375,46 +380,46 @@ steps:
       - id: simplex-bam
     run: >-
       command_line_tools/marianas_separate_bams_1.8.1/marianas_separate_bams_1.8.1.cwl
-    'sbg:x': 1983.9365234375
+    'sbg:x': 1983.936279296875
     'sbg:y': 967.5546875
   - id: picard_collect_alignment_summary_metrics_unfiltered
     in:
       - id: input
         source: abra_fx_cwl/bam
       - id: reference_sequence
-        source: referece_fasta
+        source: reference_fasta
     out:
       - id: alignment_metrics
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: picard_collect_alignment_summary_metrics_unflitered
-    'sbg:x': 1983.9365234375
+    'sbg:x': 1983.936279296875
     'sbg:y': 846.828125
   - id: picard_collect_alignment_summary_metrics_duplex
     in:
       - id: input
         source: marianas_separate_bams_1_8_1/duplex-bam
       - id: reference_sequence
-        source: referece_fasta
+        source: reference_fasta
     out:
       - id: alignment_metrics
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: picard_collect_alignment_summary_metrics_duplex
-    'sbg:x': 2297.791259765625
+    'sbg:x': 2297.791015625
     'sbg:y': 860.828125
   - id: picard_collect_alignment_summary_metrics_simplex
     in:
       - id: input
         source: marianas_separate_bams_1_8_1/simplex-bam
       - id: reference_sequence
-        source: referece_fasta
+        source: reference_fasta
     out:
       - id: alignment_metrics
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: picard_collect_alignment_summary_metrics_simplex
-    'sbg:x': 2297.791259765625
+    'sbg:x': 2297.791015625
     'sbg:y': 740.09375
 requirements:
   - class: SubworkflowFeatureRequirement
