@@ -205,7 +205,7 @@ steps:
     in:
       - id: bam
         source: bam
-      - id: reference_fasta
+      - id: referece_fasta
         source: reference_fasta
       - id: min_map_quality
         source: min_map_quality
@@ -300,6 +300,8 @@ steps:
     in:
       - id: input
         source: marianas_collapsing_second_pass_cwl/collapsed_fastq_1
+      - id: to_stdout
+        default: false
       - id: output
         source: output_name_collapsed_gzip_R1
     out:
@@ -312,6 +314,8 @@ steps:
     in:
       - id: input
         source: marianas_collapsing_second_pass_cwl/collapsed_fastq_2
+      - id: to_stdout
+        default: false
       - id: output
         source: output_name_collapsed_gzip_R2
     out:
