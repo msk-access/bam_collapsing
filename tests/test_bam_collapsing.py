@@ -32,7 +32,7 @@ RESULT_FILE_NAME = [
     "test_bam_collapsing.tar.gz",
 ]
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="class", autouse=True)
 def setup_fixture():
     """Test the workflow with cwltool"""
     print("SETUP")
@@ -74,7 +74,7 @@ def test_check_metrics_file_exists():
             "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt"
         ), "File does not exist!"
 
-'''
+
 def test_compare_metrics_file():
         assert filecmp(
             "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
@@ -89,5 +89,5 @@ def test_compare_metrics_file():
             "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
         ), "File are not the same!"
 
-'''
+
 pytest.main()
