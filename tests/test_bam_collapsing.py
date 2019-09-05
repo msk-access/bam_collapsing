@@ -44,6 +44,7 @@ def cwltool_setup():
         "/test_bam_collapsing/test_input/inputs.yaml",
     ]
     subprocess.check_call(cmd)
+    yield cwltool_setup
 
     def cwltool_teardown():
         for outfile in RESULT_FILE_NAME:
@@ -55,6 +56,7 @@ def cwltool_setup():
             shutil.rmtree("test_bam_collapsing")
         except OSError as e:
             print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
+    return cwltool_setup
 
 
 def test_check_metrics_file_exists(cwltool_setup):
