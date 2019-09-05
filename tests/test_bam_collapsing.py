@@ -43,19 +43,17 @@ def cwltool_setup():
         "bam_collapsing.cwl",
         "/test_bam_collapsing/test_input/inputs.yaml",
     ]
-    subprocess.check_call(cmd)
+    assert subprocess.check_call(cmd)
     yield cwltool_setup
-
-    def cwltool_teardown():
-        for outfile in RESULT_FILE_NAME:
-            try:
-                os.remove(outfile)
-            except OSError as e:
-                print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
+    for outfile in RESULT_FILE_NAME:
         try:
-            shutil.rmtree("test_bam_collapsing")
+            os.remove(outfile)
         except OSError as e:
-            print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
+            print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
+    try:
+        shutil.rmtree("test_bam_collapsing")
+    except OSError as e:
+        print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
     return cwltool_setup
 
 
