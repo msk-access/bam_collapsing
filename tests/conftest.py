@@ -44,6 +44,7 @@ def cwltool_setup():
     ]
     process = subprocess.run(cmd)
     yield process
+    '''
     for outfile in RESULT_FILE_NAME:
         try:
             os.remove(outfile)
@@ -53,4 +54,5 @@ def cwltool_setup():
         shutil.rmtree("test_bam_collapsing")
     except OSError as e:
         print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
+    '''
     return process
