@@ -40,10 +40,10 @@ def cwltool_setup():
         "--preserve-environment",
         "PATH",
         "bam_collapsing.cwl",
-        "/test_bam_collapsing/test_input/inputs.yaml",
+        "test_bam_collapsing/test_input/inputs.yaml",
     ]
     process = subprocess.run(cmd)
-    yield
+    yield process
     for outfile in RESULT_FILE_NAME:
         try:
             os.remove(outfile)
