@@ -33,7 +33,7 @@ RESULT_FILE_NAME = ["chr14-intervals-without-duplicates.txt",
 
 
 @pytest.fixture(scope="session")
-def setup():
+def cwltool_setup():
     """Test the workflow with cwltool"""
 
     cmd = [
@@ -45,7 +45,7 @@ def setup():
     ]
     subprocess.check_call(cmd)
 
-    def teardown():
+    def cwltool_teardown():
         for outfile in RESULT_FILE_NAME:
             try:
                 os.remove(outfile)
@@ -57,7 +57,7 @@ def setup():
             print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
-def test_check_metrics_file_exists():
+def test_check_metrics_file_exists(cwltool_setup):
     assert os.path.exists(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt"
     ), "File does not exist!"
@@ -69,7 +69,7 @@ def test_check_metrics_file_exists():
     ), "File does not exist!"
 
 
-def test_compare_metrics_file():
+def test_compare_metrics_file(cwltool_setup):
     assert filecmp(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
         "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
