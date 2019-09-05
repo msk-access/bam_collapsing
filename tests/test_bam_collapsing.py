@@ -9,6 +9,7 @@ import subprocess
 import filecmp
 
 
+@pytest.mark.xfail(raises=subprocess.CalledProcessError)
 def test_cwltool_workflow():
     """Test the workflow with cwltool"""
 
@@ -19,8 +20,7 @@ def test_cwltool_workflow():
         "bam_collapsing.cwl",
         "/test_bam_collapsing/test_input/inputs.yaml",
     ]
-    with pytest.raises(subprocess.CalledProcessError):
-        subprocess.check_call(cmd)
+    subprocess.check_call(cmd)
 
 
 def test_check_metrics_file_exists():
