@@ -9,8 +9,7 @@ import subprocess
 import filecmp
 
 
-@pytest.mark.xfail(raises=subprocess.CalledProcessError)
-def test_cwltool_workflow():
+def setup_module():
     """Test the workflow with cwltool"""
 
     cmd = [
