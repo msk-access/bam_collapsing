@@ -3,23 +3,45 @@
 
 """Tests for `bam_collapsing` package."""
 
+import os
 import pytest
+import subprocess
 
 
-from bam_collapsing import bam_collapsing
+def test_cwltool_workflow():
+    """Test the workflow with cwltool"""
+
+    cmd = [
+        "cwltool",
+        "--preserve-environment",
+        "PATH",
+        "bam_collapsing.cwl",
+        "test_inputs.yaml",
+    ]
+    rc = subprocess.check_call(cmd)
+    print(rc)
+
+    assert os.path.exists(
+        "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt"
+    ), "File does not exist!"
+    assert os.path.exists(
+        "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt"
+    ), "File does not exist!"
+    assert os.path.exists(
+        "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt"
+    ), "File does not exist!"
+    assert filecmp(
+        "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+    ), "File are not the same!"
+    assert filecmp(
+        "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duploex_alignment_metrics.txt",
+    ), "File are not the same!"
+    assert filecmp(
+        "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+    ), "File are not the same!"
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+pytest.main()
