@@ -20,7 +20,7 @@ def test_cwltool_workflow():
         "bam_collapsing.cwl",
         "/test_bam_collapsing/test_input/inputs.yaml",
     ]
-    subprocess.check_call(cmd)
+    assert subprocess.check_call(cmd) == 0
 
 
 def test_check_metrics_file_exists():
