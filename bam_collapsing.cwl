@@ -92,9 +92,13 @@ inputs:
     'sbg:x': 0
     'sbg:y': 855.25
   - id: picard_output_file_name
-    type: string
+    type: string?
     'sbg:x': 0
     'sbg:y': 1817.40625
+  - id: aln_output_file_name
+    type: string?
+    'sbg:x': -2.704296827316284
+    'sbg:y': 1931.1448974609375
 outputs:
   - id: second_pass_insertions
     outputSource:
@@ -354,6 +358,8 @@ steps:
         source: read_group_library
       - id: output_file_name
         source: picard_output_file_name
+      - id: output
+        source: aln_output_file_name
     out:
       - id: bam
     run: subworkflows/alignment.cwl
