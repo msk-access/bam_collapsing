@@ -6,6 +6,7 @@
 import os
 import pytest
 import subprocess
+import filecmp
 
 
 def test_cwltool_workflow():
@@ -16,11 +17,13 @@ def test_cwltool_workflow():
         "--preserve-environment",
         "PATH",
         "bam_collapsing.cwl",
-        "test_inputs.yaml",
+        "/test_bam_collapsing/test_input/inputs.yaml",
     ]
-    rc = subprocess.check_call(cmd)
-    print(rc)
+    with pytest.raises(subprocess.CalledProcessError):
+        subprocess.check_call(cmd)
 
+
+def test_check_metrics_file_exists():
     assert os.path.exists(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt"
     ), "File does not exist!"
@@ -30,13 +33,16 @@ def test_cwltool_workflow():
     assert os.path.exists(
         "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt"
     ), "File does not exist!"
+
+
+def test_compare_metrics_file():
     assert filecmp(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
         "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
     ), "File are not the same!"
     assert filecmp(
         "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duploex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
     ), "File are not the same!"
     assert filecmp(
         "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
