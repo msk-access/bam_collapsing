@@ -14,3 +14,4 @@ pytz
 typing==3.7.4
 # From fixing pkg_resources.ContextualVersionConflict:
 ruamel.yaml==0.15.77
+travis-wait-improved==0.0.4
