@@ -32,7 +32,8 @@ RESULT_FILE_NAME = ["chr14-intervals-without-duplicates.txt",
                     ]
 
 
-def setup_module(module):
+@pytest.fixture(scope="session")
+def setup():
     """Test the workflow with cwltool"""
 
     cmd = [
@@ -43,6 +44,17 @@ def setup_module(module):
         "/test_bam_collapsing/test_input/inputs.yaml",
     ]
     subprocess.check_call(cmd)
+
+    def teardown():
+        for outfile in RESULT_FILE_NAME:
+            try:
+                os.remove(outfile)
+            except OSError as e:
+                print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
+        try:
+            shutil.rmtree("test_bam_collapsing")
+        except OSError as e:
+            print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
 def test_check_metrics_file_exists():
@@ -71,17 +83,6 @@ def test_compare_metrics_file():
         "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
     ), "File are not the same!"
 
-
-def teardown_module(module):
-    for outfile in RESULT_FILE_NAME:
-        try:
-            os.remove(outfile)
-        except OSError as e:
-            print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
-    try:
-        shutil.rmtree("test_bam_collapsing")
-    except OSError as e:
-        print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
 pytest.main()
