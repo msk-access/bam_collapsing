@@ -11,9 +11,10 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = []
 
-setup_requirements = ['pytest-runner', ]
+setup_requirements = [
+    'pytest-runner', ]
 
 test_requirements = ['pytest', ]
 
@@ -21,7 +22,7 @@ setup(
     author="Ronak Shah",
     author_email='rons.shah@gmail.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 2 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',

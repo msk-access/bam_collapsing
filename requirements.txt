@@ -9,3 +9,10 @@ Sphinx==2.1.2
 twine==1.13.0
 pytest==5.0.1
 pytest-runner==5.1
+toil-ionox0[cwl]==0.0.7
+pytz
+typing==3.7.4
+# From fixing pkg_resources.ContextualVersionConflict:
+ruamel.yaml==0.15.77
+travis-wait-improved==0.0.4
+pytest-travis-fold==1.3.0
