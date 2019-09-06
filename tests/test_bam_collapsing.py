@@ -36,7 +36,7 @@ RESULT_FILE_NAME = [
 OUTPUT_JSON_FILENAME = "pipeline_result.json"
 
 
-def setup_module():
+def setup_module(travis):
     """
     Setup and Test the workflow with cwltool
     """
