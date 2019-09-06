@@ -8,6 +8,7 @@ import pytest
 import filecmp
 import subprocess
 import shutil
+import difflib
 
 RESULT_FILE_NAME = [
     "chr14-intervals-without-duplicates.txt",
@@ -32,62 +33,65 @@ RESULT_FILE_NAME = [
     "test_bam_collapsing.tar.gz",
 ]
 
-@pytest.fixture(scope="class", autouse=True)
-def setup_fixture():
-    """Test the workflow with cwltool"""
-    print("SETUP")
 
+def setup_module():
+    """Test the workflow with cwltool"""
+    print("\n### SETUP ###\n")
     cmd = [
         "cwltool",
         "--preserve-environment",
         "PATH",
         "bam_collapsing.cwl",
-        "test_bam_collapsing/test_input/inputs.yaml",
+        "test_bam_collapsing/test_input/inputs.yaml"
     ]
-    yield subprocess.run(cmd)
+    return_code = subprocess.check_call(cmd)
+    assert return_code == 0
 
-#@pytest.fixture()
-#def teardown_fixture():
-#    """
-#\    Delete output files
-#    """
-#    print('TEARDOWN')
+
+def teardown_module():
+    print("\n### TEARDOWN ###\n")
     for outfile in RESULT_FILE_NAME:
         try:
             os.remove(outfile)
         except OSError as e:
             print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
     try:
-        shutil.rmtree(os.path.join("test_bam_collapsing", "/"))
+        shutil.rmtree("test_bam_collapsing")
     except OSError as e:
         print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
-def test_check_metrics_file_exists():
-        assert os.path.exists(
-            "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt"
-        ), "File does not exist!"
+def test_check_if_metrics_file_exists():
+        print("\n### Check if files exists ###\n")
+        assert os.path.exists("chr14_unfiltered_srt_abra_fm_alignment_metrics.txt")
         assert os.path.exists(
             "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt"
-        ), "File does not exist!"
+        )
         assert os.path.exists(
             "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt"
-        ), "File does not exist!"
+        )
 
 
-def test_compare_metrics_file():
-        assert filecmp(
+def test_check_if_metrics_file_are_same():
+        print(
+            "\n### Check if files are the same from alignment metrics calculation ###\n"
+        )
+        compare_files(
             "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
             "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
-        ), "File are not the same!"
-        assert filecmp(
+        )
+        compare_files(
             "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
             "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-        ), "File are not the same!"
-        assert filecmp(
+        )
+        compare_files(
             "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
             "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
-        ), "File are not the same!"
+        )
 
 
-pytest.main()
+def compare_files(output, expected):
+    lines_result = open(output, 'r').readlines()
+    lines_expected = open(expected, 'r').readlines()
+    print("\n".join(difflib.ndiff(lines_result, lines_expected)))
+    assert filecmp.cmp(output, expected)
