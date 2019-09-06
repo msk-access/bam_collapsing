@@ -7,6 +7,7 @@ import os
 import subprocess
 import shutil
 import difflib
+import json
 
 RESULT_FILE_NAME = [
     "chr14-intervals-without-duplicates.txt",
@@ -29,21 +30,30 @@ RESULT_FILE_NAME = [
     "second-pass-alt-alleles.txt",
     "second-pass-insertions.txt",
     "test_bam_collapsing.tar.gz",
+    "pipeline_result.json"
 ]
+
+OUTPUT_JSON_FILENAME = "pipeline_result.json"
 
 
 def setup_module():
     """Test the workflow with cwltool"""
     print("\n### SETUP ###\n")
-    cmd = [
-        "cwltool",
-        "--preserve-environment",
-        "PATH",
-        "bam_collapsing.cwl",
-        "test_bam_collapsing/test_input/inputs.yaml",
-    ]
-    return_code = subprocess.check_call(cmd)
-    assert return_code == 0
+    with open(OUTPUT_JSON_FILENAME, "w") as json:
+
+        cmd = [
+            "cwltool",
+            "--preserve-environment",
+            "PATH",
+            "bam_collapsing.cwl",
+            "test_bam_collapsing/test_input/inputs.yaml",
+        ]
+        process = subprocess.Popen(
+            cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
+        )
+        ret_code = process.wait()
+        json.flush()
+    return ret_code
 
 
 def teardown_module():
@@ -59,14 +69,10 @@ def teardown_module():
         print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
-def test_check_if_metrics_file_exists():
-    print("\n### Check if files exists ###\n")
-    assert os.path.exists("chr14_unfiltered_srt_abra_fm_alignment_metrics.txt")
-    assert os.path.exists("chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt")
-    assert os.path.exists("chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt")
-
-
 def test_check_if_metrics_file_are_same():
+    """
+    General tests for checking if the metrics file is the same
+    """
     print("\n### Check if files are the same from alignment metrics calculation ###\n")
     compare_picard_metrics_files(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
@@ -82,11 +88,20 @@ def test_check_if_metrics_file_are_same():
     )
 
 
+def test_output_json():
+    """
+    General tests for output json
+    """
+    assert os.path.exists(OUTPUT_JSON_FILENAME)
+    OUTPUT_JSON = json.loads(OUTPUT_JSON_FILENAME)
+    assert len(OUTPUT_JSON['output']) == 18
+
+
 def compare_picard_metrics_files(output, expected):
     lines_result = open(output, "r").readlines()
-    lines_result = filter(predicate, lines_result)
+    lines_result = list(filter(predicate, lines_result))
     lines_expected = open(expected, "r").readlines()
-    lines_expected = filter(predicate, lines_expected)
+    lines_expected = list(filter(predicate, lines_expected))
     print("\n".join(difflib.ndiff(lines_result, lines_expected)))
     assert all([a == b for a, b in zip(lines_result, lines_expected)])
 
