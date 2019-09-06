@@ -37,7 +37,9 @@ OUTPUT_JSON_FILENAME = "pipeline_result.json"
 
 
 def setup_module():
-    """Test the workflow with cwltool"""
+    """
+    Setup and Test the workflow with cwltool
+    """
     print("\n### SETUP ###\n")
     with open(OUTPUT_JSON_FILENAME, "w") as json:
 
@@ -57,6 +59,9 @@ def setup_module():
 
 
 def teardown_module():
+    """
+    Tear down the setup by deleteing all the files that are downloaded and produced.
+    """
     print("\n### TEARDOWN ###\n")
     for outfile in RESULT_FILE_NAME:
         try:
@@ -93,11 +98,14 @@ def test_output_json():
     General tests for output json
     """
     assert os.path.exists(OUTPUT_JSON_FILENAME)
-    OUTPUT_JSON = json.loads(OUTPUT_JSON_FILENAME)
-    assert len(OUTPUT_JSON['output']) == 18
+    OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, 'r').read())
+    assert len(OUTPUT_JSON) == 18
 
 
 def compare_picard_metrics_files(output, expected):
+    """
+    Remove lines starting with `#` in picard metrics and use difflib to print differences if any and then assert
+    """
     lines_result = open(output, "r").readlines()
     lines_result = list(filter(predicate, lines_result))
     lines_expected = open(expected, "r").readlines()
@@ -107,6 +115,9 @@ def compare_picard_metrics_files(output, expected):
 
 
 def predicate(line):
+    """
+    Remove lines starting with `#`
+    """
     if "#" in line:
         return False
     return True
