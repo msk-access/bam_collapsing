@@ -8,6 +8,20 @@ import subprocess
 import shutil
 import difflib
 import json
+import logging
+import coloredlogs
+
+# Create Logger if verbose
+loggeroutput = "pytest.log"
+logging.basicConfig(
+    filename=loggeroutput,
+    filemode="w",
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    datefmt="%m/%d/%Y %I:%M:%S %p",
+    level=logging.DEBUG,
+)
+
+coloredlogs.install(level="DEBUG")
 
 RESULT_FILE_NAME = [
     "chr14-intervals-without-duplicates.txt",
@@ -26,11 +40,9 @@ RESULT_FILE_NAME = [
     "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
     "collapsed_R1_.fastq",
     "collapsed_R2_.fastq",
-    "goodls",
     "second-pass-alt-alleles.txt",
     "second-pass-insertions.txt",
-    "test_bam_collapsing.tar.gz",
-    "pipeline_result.json"
+    "pipeline_result.json",
 ]
 
 OUTPUT_JSON_FILENAME = "pipeline_result.json"
@@ -40,7 +52,7 @@ def setup_module(travis):
     """
     Setup and Test the workflow with cwltool
     """
-    print("\n### SETUP ###\n")
+    logging.info("\n### SETUP ###\n")
     with open(OUTPUT_JSON_FILENAME, "w") as json:
 
         cmd = [
@@ -62,23 +74,23 @@ def teardown_module():
     """
     Tear down the setup by deleteing all the files that are downloaded and produced.
     """
-    print("\n### TEARDOWN ###\n")
+    logging.info("\n### TEARDOWN ###\n")
     for outfile in RESULT_FILE_NAME:
         try:
             os.remove(outfile)
         except OSError as e:
-            print("ERROR: cannot remove output file, %s: %s" % (outfile, e))
+            logging.error("ERROR: cannot remove output file, %s: %s" % (outfile, e))
     try:
         shutil.rmtree("test_bam_collapsing")
     except OSError as e:
-        print("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
+        logging.error("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
 def test_check_if_metrics_file_are_same():
     """
     General tests for checking if the metrics file is the same
     """
-    print("\n### Check if files are the same from alignment metrics calculation ###\n")
+    logging.info("\n### Check if files are the same from alignment metrics calculation ###\n")
     compare_picard_metrics_files(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
         "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
@@ -97,8 +109,9 @@ def test_output_json():
     """
     General tests for output json
     """
+    logging.info("\n### Check if json file exists and check some basic stats ###\n")
     assert os.path.exists(OUTPUT_JSON_FILENAME)
-    OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, 'r').read())
+    OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
     assert len(OUTPUT_JSON) == 18
 
 
