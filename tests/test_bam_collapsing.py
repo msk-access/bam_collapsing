@@ -4,8 +4,6 @@
 """Tests for `bam_collapsing` package."""
 
 import os
-import pytest
-import filecmp
 import subprocess
 import shutil
 import difflib
@@ -42,7 +40,7 @@ def setup_module():
         "--preserve-environment",
         "PATH",
         "bam_collapsing.cwl",
-        "test_bam_collapsing/test_input/inputs.yaml"
+        "test_bam_collapsing/test_input/inputs.yaml",
     ]
     return_code = subprocess.check_call(cmd)
     assert return_code == 0
@@ -62,36 +60,38 @@ def teardown_module():
 
 
 def test_check_if_metrics_file_exists():
-        print("\n### Check if files exists ###\n")
-        assert os.path.exists("chr14_unfiltered_srt_abra_fm_alignment_metrics.txt")
-        assert os.path.exists(
-            "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt"
-        )
-        assert os.path.exists(
-            "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt"
-        )
+    print("\n### Check if files exists ###\n")
+    assert os.path.exists("chr14_unfiltered_srt_abra_fm_alignment_metrics.txt")
+    assert os.path.exists("chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt")
+    assert os.path.exists("chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt")
 
 
 def test_check_if_metrics_file_are_same():
-        print(
-            "\n### Check if files are the same from alignment metrics calculation ###\n"
-        )
-        compare_files(
-            "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
-            "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
-        )
-        compare_files(
-            "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-            "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-        )
-        compare_files(
-            "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
-            "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
-        )
+    print("\n### Check if files are the same from alignment metrics calculation ###\n")
+    compare_picard_metrics_files(
+        "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+    )
+    compare_picard_metrics_files(
+        "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
+    )
+    compare_picard_metrics_files(
+        "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+    )
 
 
-def compare_files(output, expected):
-    lines_result = open(output, 'r').readlines()
-    lines_expected = open(expected, 'r').readlines()
+def compare_picard_metrics_files(output, expected):
+    lines_result = open(output, "r").readlines()
+    lines_result = filter(predicate, lines_result)
+    lines_expected = open(expected, "r").readlines()
+    lines_expected = filter(predicate, lines_expected)
     print("\n".join(difflib.ndiff(lines_result, lines_expected)))
-    assert filecmp.cmp(output, expected)
+    assert all([a == b for a, b in zip(lines_result, lines_expected)])
+
+
+def predicate(line):
+    if "#" in line:
+        return False
+    return True
