@@ -48,26 +48,26 @@ RESULT_FILE_NAME = [
 OUTPUT_JSON_FILENAME = "pipeline_result.json"
 
 
-def setup_module():
+def setup_module(capfd):
     """
     Setup and test the workflow with cwltool
     """
 
     logging.info("\n### SETUP ###\n")
     with open(OUTPUT_JSON_FILENAME, "w") as json:
-
-        cmd = [
-            "cwltool",
-            "--preserve-environment",
-            "PATH",
-            "bam_collapsing.cwl",
-            "test_bam_collapsing/test_input/inputs.yaml",
-        ]
-        process = subprocess.Popen(
-            cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
-        )
-        ret_code = process.wait()
-        json.flush()
+        with capfd.disabled():
+            cmd = [
+                "cwltool",
+                "--preserve-environment",
+                "PATH",
+                "bam_collapsing.cwl",
+                "test_bam_collapsing/test_input/inputs.yaml",
+            ]
+            process = subprocess.Popen(
+                cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
+            )
+            ret_code = process.wait()
+            json.flush()
     return ret_code
 
 
