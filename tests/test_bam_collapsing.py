@@ -52,67 +52,71 @@ def setup_module(travis):
     """
     Setup and Test the workflow with cwltool
     """
-    logging.info("\n### SETUP ###\n")
-    with open(OUTPUT_JSON_FILENAME, "w") as json:
+    with travis.folding_output():
+        logging.info("\n### SETUP ###\n")
+        with open(OUTPUT_JSON_FILENAME, "w") as json:
 
-        cmd = [
-            "cwltool",
-            "--preserve-environment",
-            "PATH",
-            "bam_collapsing.cwl",
-            "test_bam_collapsing/test_input/inputs.yaml",
-        ]
-        process = subprocess.Popen(
-            cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
-        )
-        ret_code = process.wait()
-        json.flush()
+            cmd = [
+                "cwltool",
+                "--preserve-environment",
+                "PATH",
+                "bam_collapsing.cwl",
+                "test_bam_collapsing/test_input/inputs.yaml",
+            ]
+            process = subprocess.Popen(
+                cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
+            )
+            ret_code = process.wait()
+            json.flush()
     return ret_code
 
 
-def teardown_module():
+def teardown_module(travis):
     """
     Tear down the setup by deleteing all the files that are downloaded and produced.
     """
-    logging.info("\n### TEARDOWN ###\n")
-    for outfile in RESULT_FILE_NAME:
+    with travis.folding_output():
+        logging.info("\n### TEARDOWN ###\n")
+        for outfile in RESULT_FILE_NAME:
+            try:
+                os.remove(outfile)
+            except OSError as e:
+                logging.error("ERROR: cannot remove output file, %s: %s" % (outfile, e))
         try:
-            os.remove(outfile)
+            shutil.rmtree("test_bam_collapsing")
         except OSError as e:
-            logging.error("ERROR: cannot remove output file, %s: %s" % (outfile, e))
-    try:
-        shutil.rmtree("test_bam_collapsing")
-    except OSError as e:
-        logging.error("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
+            logging.error("ERROR: cannot remove folder test_bam_collapsing : %s" % (e))
 
 
-def test_check_if_metrics_file_are_same():
+def test_check_if_metrics_file_are_same(travis):
     """
     General tests for checking if the metrics file is the same
     """
-    logging.info("\n### Check if files are the same from alignment metrics calculation ###\n")
-    compare_picard_metrics_files(
-        "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
-    )
-    compare_picard_metrics_files(
-        "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-    )
-    compare_picard_metrics_files(
-        "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
-    )
+    with travis.folding_output():
+        logging.info("\n### Check if files are the same from alignment metrics calculation ###\n")
+        compare_picard_metrics_files(
+            "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+            "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+        )
+        compare_picard_metrics_files(
+            "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
+            "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
+        )
+        compare_picard_metrics_files(
+            "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+            "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+        )
 
 
-def test_output_json():
+def test_output_json(travis):
     """
     General tests for output json
     """
-    logging.info("\n### Check if json file exists and check some basic stats ###\n")
-    assert os.path.exists(OUTPUT_JSON_FILENAME)
-    OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
-    assert len(OUTPUT_JSON) == 18
+    with travis.folding_output():
+        logging.info("\n### Check if json file exists and check some basic stats ###\n")
+        assert os.path.exists(OUTPUT_JSON_FILENAME)
+        OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
+        assert len(OUTPUT_JSON) == 18
 
 
 def compare_picard_metrics_files(output, expected):
