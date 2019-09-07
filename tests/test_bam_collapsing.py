@@ -20,7 +20,7 @@ logging.basicConfig(
     datefmt="%m/%d/%Y %I:%M:%S %p",
     level=logging.DEBUG,
 )
-
+logger = logging.getLogger(__name__)
 coloredlogs.install(level="DEBUG")
 
 RESULT_FILE_NAME = [
@@ -53,7 +53,7 @@ def setup_module():
     Setup and test the workflow with cwltool
     """
 
-    logging.info("\n### SETUP ###\n")
+    logging.info("### SETUP ###")
     with open(OUTPUT_JSON_FILENAME, "w") as json:
 
         cmd = [
@@ -75,7 +75,7 @@ def teardown_module():
     """
     Tear down the setup by deleteing all the files that are downloaded and produced.
     """
-    logging.info("\n### TEARDOWN ###\n")
+    logging.info("### TEARDOWN ###")
     for outfile in RESULT_FILE_NAME:
         try:
             os.remove(outfile)
@@ -91,7 +91,7 @@ def test_check_if_metrics_file_are_same():
     """
     General tests for checking if the metrics file is the same
     """
-    logging.info("\n### Check if files are the same from alignment metrics calculation ###\n")
+    logging.info("### Check if files are the same from alignment metrics calculation ###")
     compare_picard_metrics_files(
         "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
         "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
@@ -110,7 +110,7 @@ def test_output_json():
     """
     General tests for output json
     """
-    logging.info("\n### Check if json file exists and check some basic stats ###\n")
+    logging.info("### Check if json file exists and check some basic stats ###")
     assert os.path.exists(OUTPUT_JSON_FILENAME)
     OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
     assert len(OUTPUT_JSON) == 18
