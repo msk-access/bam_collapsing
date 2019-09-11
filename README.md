@@ -6,11 +6,8 @@ description: Collapsing of reads a  aligned to the genome having same unique mol
 
 
 [![PyPI version](https://badge.fury.io/py/process-fastq.svg)](https://badge.fury.io/py/process-fastq)
-
 [![Build Status](https://travis-ci.org/msk-access/bam_collapsing.svg?branch=master)](https://travis-ci.org/msk-access/bam_collapsing)
-
 [![Updates](https://pyup.io/repos/github/msk-access/bam_collapsing/shield.svg)](https://pyup.io/repos/github/msk-access/bam_collapsing/)
-
 [![Python 3](https://pyup.io/repos/github/msk-access/bam_collapsing/python-3-shield.svg)](https://pyup.io/repos/github/msk-access/bam_collapsing/)
 
 
