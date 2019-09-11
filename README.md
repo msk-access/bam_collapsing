@@ -19,9 +19,13 @@ The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed b
 Given a standard bam file: 
 
 1. Generate a pileup using Waltz.
+
 2. Using the pileup with the bam file run Marianas bam collapsing, thus generating collapsed fastq.
+   
 3. Using the collpsed fastq align and indel realign the reads generating unfiltered bam files.
+
 4. Using the unfiltered bam file with help of Marianas seprate them into duplex and simplex bam.
+   
 5. Calcualte alignment metrics for unfiltere, duplex and simplex bam file.
 
 ## Installation
