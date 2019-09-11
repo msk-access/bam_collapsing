@@ -176,18 +176,24 @@ outputs:
     outputSource:
       - abra_fx_cwl/bam
     type: File
+    secondaryFiles:
+      - ^.bai
     'sbg:x': 1995.94970703125
     'sbg:y': 787.796875
   - id: simplex-bam
     outputSource:
       - marianas_separate_bams_1_8_1/simplex-bam
     type: File
+    secondaryFiles:
+      - ^.bai
     'sbg:x': 2309.788818359375
     'sbg:y': 680.890625
   - id: duplex-bam
     outputSource:
       - marianas_separate_bams_1_8_1/duplex-bam
     type: File
+    secondaryFiles:
+      - ^.bai
     'sbg:x': 2309.788818359375
     'sbg:y': 1029.609375
   - id: alignment_metrics_unfiltered
