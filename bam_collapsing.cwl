@@ -174,7 +174,7 @@ outputs:
     'sbg:y': 745.796875
   - id: unfiltered-bam
     outputSource:
-      - abra_fx_cwl/bam
+      - abra_fx_cwl/abra_fx_bam
     type: File
     secondaryFiles:
       - ^.bai
@@ -214,6 +214,13 @@ outputs:
     type: File
     'sbg:x': 2618.9248046875
     'sbg:y': 962.15625
+  - id: output_file
+    outputSource:
+      - abra_fx_cwl/output_file
+    type: File?
+    label: indel_realign_targets
+    'sbg:x': 1899.8309326171875
+    'sbg:y': 608.4406127929688
 steps:
   - id: waltz_pileupmetrics
     in:
@@ -384,15 +391,17 @@ steps:
       - id: option_bedgraph
         default: true
     out:
-      - id: bam
+      - id: abra_fx_bam
+      - id: output_file
     run: subworkflows/abra_fx-cwl.cwl
     label: abra_fx.cwl
-    'sbg:x': 1787.501220703125
-    'sbg:y': 901.703125
+    'sbg:x': 1703.363525390625
+    'sbg:y': 952.2060546875
   - id: marianas_separate_bams_1_8_1
     in:
       - id: input_bam
-        source: abra_fx_cwl/bam
+        source:
+          - abra_fx_cwl/abra_fx_bam
     out:
       - id: duplex-bam
       - id: simplex-bam
@@ -404,7 +413,8 @@ steps:
   - id: picard_collect_alignment_summary_metrics_unfiltered
     in:
       - id: input
-        source: abra_fx_cwl/bam
+        source:
+          - abra_fx_cwl/abra_fx_bam
       - id: reference_sequence
         source: reference_fasta
     out:
