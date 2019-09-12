@@ -1,6 +1,6 @@
 # Summary
 
--   [Introduction](README.md)
+-   [Introduction](Introduction.md)
 -   [BAM Collapsing](bam_collapsing.md)
 
 ## Github Specifications
