@@ -1,6 +1,6 @@
 # Summary
 
--   [BAM Collapsing](bam_collapsing.md)
+- [BAM Collapsing](bam_collapsing.md)
 
 ## Github Specifications
 
