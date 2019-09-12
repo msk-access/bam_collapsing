@@ -3,14 +3,8 @@
 -   [Introduction](README.md)
 -   [BAM Collapsing](bam_collapsing.md)
 
-### Standards
+## Github Specifications
 
--   [Quality](quality.md)
--   [Documentation](doc.md)
--   [File Structure](filestructure.md)
--   [Exit Codes](exitcodes.md)
-
-### Modules
-
--   [Alinex](modules.md)
--   [3rd Party](3rd-party.md)
+- [Contributor Covenant Code of Conduct](../.github/code_of_conduct.md)
+- [Contributing](../.github/contributing.md)
+- [ISSUE\_TEMPLATE](../.github/issue_template.md)
