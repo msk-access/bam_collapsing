@@ -12,7 +12,7 @@ description: Collapsing of reads a  aligned to the genome having same unique mol
 The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed bam from standard processing workflow available [here](https://github.com/msk-access/standard_bam_processing). 
 
 - Free software: Apache Software License 2.0
-- Documentation: https://msk-access.gitbook.io/standard-bam-processing/bam-collapsing.
+- Documentation: https://msk-access.gitbook.io/bam-collapsing
 
 ## Features
 
@@ -40,5 +40,5 @@ git clone --depth 50 https://github.com/msk-access/bam_collapsing.git
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
-- _Cookiecutter: https://github.com/audreyr/cookiecutter
-- _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+- Cookiecutter: https://github.com/audreyr/cookiecutter
+- `audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
