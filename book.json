@@ -1,6 +1,6 @@
 {
-    "title": "区块链工程师面试宝典",
-    "author": "Haoyu LIN",
+    "title": "MSK-ACCESS Bam Collapsing",
+    "author": "Ronak H. Shah, Ian Johnson, Shalabh Suman",
     "output.name": "site",
     "gitbook": "3.2.3",
     "root": "./docs",
@@ -69,18 +69,18 @@
         },
         "sharing": {
            "douban": false,
-           "facebook": false,
-           "google": false,
+           "facebook": true,
+           "google": true,
            "hatenaBookmark": false,
            "instapaper": false,
            "line": false,
-           "linkedin": false,
+           "linkedin": true,
            "messenger": false,
            "pocket": false,
            "qq": false,
            "qzone": false,
            "stumbleupon": false,
-           "twitter": false,
+           "twitter": true,
            "viber": false,
            "vk": false,
            "weibo": false,
@@ -92,8 +92,8 @@
            ]
        },
         "tbfed-pagefooter": {
-            "copyright": "Copyright © Haoyu LIN 2017-2018",
-            "modify_label": "该文件修订时间：",
+            "copyright": "Copyright © MSKCC 2018-2019",
+            "modify_label": "MSK-ACCESS：",
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "simple-page-toc": {
