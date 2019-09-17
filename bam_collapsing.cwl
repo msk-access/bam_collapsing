@@ -99,6 +99,10 @@ inputs:
     type: string?
     'sbg:x': -2.704296827316284
     'sbg:y': 1931.1448974609375
+  - id: abra_collapsing_number_of_threads
+    type: int?
+    'sbg:x': 1573.8192138671875
+    'sbg:y': 615.26806640625
 outputs:
   - id: second_pass_insertions
     outputSource:
@@ -390,6 +394,8 @@ steps:
         default: true
       - id: option_bedgraph
         default: true
+      - id: number_of_threads
+        source: abra_collapsing_number_of_threads
     out:
       - id: abra_fx_bam
       - id: output_file
@@ -400,8 +406,7 @@ steps:
   - id: marianas_separate_bams_1_8_1
     in:
       - id: input_bam
-        source:
-          - abra_fx_cwl/abra_fx_bam
+        source: abra_fx_cwl/abra_fx_bam
     out:
       - id: duplex-bam
       - id: simplex-bam
@@ -413,8 +418,7 @@ steps:
   - id: picard_collect_alignment_summary_metrics_unfiltered
     in:
       - id: input
-        source:
-          - abra_fx_cwl/abra_fx_bam
+        source: abra_fx_cwl/abra_fx_bam
       - id: reference_sequence
         source: reference_fasta
     out:
