@@ -1,9 +1,15 @@
-# Summary
+# Table of contents
 
-- [BAM Collapsing](bam_collapsing.md)
+* [Introduction](README.md)
+* [BAM Collapsing](bam_collapsing.md)
+* [Quickstart](quickstart.md)
+* [Inputs Description](inputs-description.md)
+* [Tools Desciption](tools-desciption.md)
+* [Outputs Description](outputs-description.md)
 
 ## Github Specifications
 
-- [Contributor Covenant Code of Conduct](github_specifications/CODE_OF_CONDUCT.md)
-- [Contributing](github_specifications/CONTRIBUTING.md)
-- [ISSUE\_TEMPLATE](github_specifications/ISSUE_TEMPLATE.md)
+* [Contributor Covenant Code of Conduct](github-specifications/code_of_conduct.md)
+* [Contributing](github-specifications/contributing.md)
+* [ISSUE\_TEMPLATE](github-specifications/issue_template.md)
+
