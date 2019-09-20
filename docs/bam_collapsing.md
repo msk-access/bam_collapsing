@@ -13,6 +13,8 @@ The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed b
 * Free software: Apache Software License 2.0
 * Documentation: [https://msk-access.gitbook.io/bam-collapsing](https://msk-access.gitbook.io/bam-collapsing)
 
+![Workflow - Viewed from Rabix Composer](.gitbook/assets/screen-shot-2019-09-20-at-10.31.11-am.png)
+
 ## Features
 
 Given a standard bam file:
