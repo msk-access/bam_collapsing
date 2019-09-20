@@ -7,6 +7,11 @@ $namespaces:
 inputs:
   - id: reference_fasta
     type: File
+    doc: >-
+      The reference sequence in a single reference sequence in FASTA format,
+      with all contigs in the same file, validated according to the FASTA
+      standard. It has multiple secondary file associated with it ending in
+      ".dict, .fai, .amb, .ann, .bwt, .pac, .index, .rbwt, .rpac, .rsa, .sa"
     secondaryFiles:
       - .fai
       - ^.dict
@@ -19,6 +24,12 @@ inputs:
     'sbg:y': 321.375
   - id: bed_file
     type: File
+    doc: >-
+      Targets in BED file format used by Waltz to generate the PileUp for
+      collapsing of the BAM file. The genotype from positions in this bed file
+      will be used as the consensus base if min_consensus_percent threshold is
+      not reached. Otherwise, the reference base from the supplied
+      reference_fasta will be used
     'sbg:x': 0
     'sbg:y': 2142.5
   - id: bam
@@ -29,22 +40,29 @@ inputs:
     'sbg:y': 2249.625
   - id: min_map_quality
     type: int
+    doc: Make sure to use high quality reads.
     'sbg:x': 0
     'sbg:y': 1606.875
   - id: min_base_quality
     type: int
+    doc: Minimum Base Quality score to be used during collapsing.
     'sbg:x': 0
     'sbg:y': 1821.125
   - id: mismatches
     type: int
+    doc: Allowable mismatch count in UMI bases for grouping UMI families
     'sbg:x': 0
     'sbg:y': 1499.75
   - id: wobble
     type: int
+    doc: allowable left and right shift amount for grouping UMI families
     'sbg:x': 0
     'sbg:y': 0
   - id: min_consensus_percent
     type: int
+    doc: >-
+      Percentage of bases that must be in agreement at each position in the
+      consensus read before masking that base as "N
     'sbg:x': 0
     'sbg:y': 1714
   - id: key
@@ -57,42 +75,86 @@ inputs:
     'sbg:y': 1227.375
   - id: sort_first_pass_output_file_name
     type: string
+    doc: Output File Name for Marianas First Pass process.
     'sbg:x': 0
     'sbg:y': 214.25
   - id: output_name_collapsed_gzip_R1
     type: string?
+    doc: Name of the output file for READ1 collapsed FASTQ file
     'sbg:x': 0
     'sbg:y': 1392.625
   - id: output_name_collapsed_gzip_R2
     type: string?
+    doc: Name of the output file for READ2 collapsed FASTQ file
     'sbg:x': 0
     'sbg:y': 1285.5
   - id: read_group_sequnecing_center
     type: string
+    doc: RGCN tag for BAM file indicating where the data is sequenced.
     'sbg:x': 0
     'sbg:y': 428.5
   - id: read_group_sequencing_platform
     type: string
+    doc: BAM Tag describing the Platform used to generate the sequencing data.
     'sbg:x': 0
     'sbg:y': 535.625
   - id: read_group_sample_name
     type: string
+    doc: >-
+      SM = Sample
+
+      The name of the sample sequenced in this read group. GATK tools treat all
+      read groups with the same SM value as containing sequencing data for the
+      same sample, and this is also the name that will be used for the sample
+      column in the VCF file. Therefore it's critical that the SM field be
+      specified correctly. When sequencing pools of samples, use a pool name
+      instead of an individual sample name. Note, when we say pools, we mean
+      samples that are not individually barcoded. In the case of multiplexing
+      (often confused with pooling) where you know which reads come from each
+      sample and you have simply run the samples together in one lane, you can
+      keep the SM tag as the sample name and not the "pooled name".
     'sbg:x': 0
     'sbg:y': 642.75
   - id: read_group_platform_unit
     type: string
+    doc: >-
+      PU = Platform Unit
+
+      The PU holds three types of information, the
+      {FLOWCELL_BARCODE}.{LANE}.{SAMPLE_BARCODE}. The {FLOWCELL_BARCODE} refers
+      to the unique identifier for a particular flow cell. The {LANE} indicates
+      the lane of the flow cell and the {SAMPLE_BARCODE} is a
+      sample/library-specific identifier. Although the PU is not required by
+      GATK but takes precedence over ID for base recalibration if it is present.
+      In the example shown earlier, two read group fields, ID and PU,
+      appropriately differentiate flow cell lane, marked by .2, a factor that
+      contributes to batch effects.
     'sbg:x': 0
     'sbg:y': 749.875
   - id: read_group_library
     type: int
+    doc: >-
+      LB = DNA preparation library identifier
+
+      MarkDuplicates uses the LB field to determine which read groups might
+      contain molecular duplicates, in case the same DNA library was sequenced
+      on multiple lanes.
     'sbg:x': 0
     'sbg:y': 857
   - id: read_group_identifier
     type: string
+    doc: >-
+      ID = Read group identifier
+
+      This tag identifies which read group each read belongs to, so each read
+      group's ID must be unique. It is referenced both in the read group
+      definition line in the file header (starting with @RG) and in the RG:Z tag
+      for each read record.
     'sbg:x': 0
     'sbg:y': 964.125
   - id: picard_output_file_name
     type: string?
+    doc: Output BAM file name for picard AddOrReplaceReadGroups
     'sbg:x': 0
     'sbg:y': 1071.25
   - id: aln_output_file_name
@@ -101,18 +163,22 @@ inputs:
     'sbg:y': 2356.75
   - id: sort_order
     type: string?
+    doc: Picard Sort Order of the Input BAM file
     'sbg:x': 0
     'sbg:y': 107.125
   - id: M
     type: boolean?
+    doc: mark shorter split hits as secondary (for Picard/GATK compatibility)
     'sbg:x': 0
     'sbg:y': 1928.25
   - id: create_bam_index
     type: boolean?
+    doc: Make Index (bai) file corresponding to the BAM file.
     'sbg:x': 0
     'sbg:y': 2035.375
   - id: P
     type: boolean?
+    doc: skip pairing; mate rescue performed unless -S also in use
     'sbg:x': 0
     'sbg:y': 1178.375
 outputs:
@@ -240,7 +306,7 @@ steps:
       - id: intervals_without_duplicates
     run: >-
       command_line_tools/waltz_pileupmatrices_3.1.1/waltz_pileupmatrices_3.1.1.cwl
-    label: waltz_pileupmetrics
+    label: Generate Pileup
     'sbg:x': 319.125
     'sbg:y': 1157.375
   - id: marianas_collapsing_first_pass_cwl
@@ -268,6 +334,7 @@ steps:
       - id: first_pass_output_dir
     run: >-
       command_line_tools/marianas_collapsing_first_pass_1.8.1/marianas_first_pass.cwl
+    label: Marianas First Pass
     'sbg:x': 686.4448852539062
     'sbg:y': 1071.25
   - id: sort
@@ -287,6 +354,7 @@ steps:
     out:
       - id: sorted
     run: command_line_tools/utilities_ubuntu_18.04/sort.cwl
+    label: Sort First Pass Output
     'sbg:x': 1104.43505859375
     'sbg:y': 1003.6875
   - id: marianas_collapsing_second_pass_cwl
@@ -316,6 +384,7 @@ steps:
       - id: second_pass_insertions
     run: >-
       command_line_tools/marianas_collapsing_second_pass_1.8.1/marianas_second_pass.cwl
+    label: Marianas Second Pass
     'sbg:x': 1320.54443359375
     'sbg:y': 1122.375
   - id: gzip_Read1
@@ -381,7 +450,7 @@ steps:
     out:
       - id: bam
     run: subworkflows/alignment.cwl
-    label: alignment
+    label: Align Collapsed Fastq and Generate BAM file
     'sbg:x': 2020.5975341796875
     'sbg:y': 1285.5
   - id: marianas_separate_bams_1_8_1
@@ -393,7 +462,7 @@ steps:
       - id: simplex-bam
     run: >-
       command_line_tools/marianas_separate_bams_1.8.1/marianas_separate_bams_1.8.1.cwl
-    label: marianas_separate_bams_1.8.1
+    label: Marianas Seprate BAM into Simplex and Duplex
     'sbg:x': 2483.84814453125
     'sbg:y': 1231.9375
   - id: picard_collect_alignment_summary_metrics_unfiltered
@@ -406,7 +475,7 @@ steps:
       - id: alignment_metrics
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
-    label: picard_collect_alignment_summary_metrics_unflitered
+    label: alignment_summary_metrics_unflitered
     'sbg:x': 2483.84814453125
     'sbg:y': 1110.8125
   - id: picard_collect_alignment_summary_metrics_duplex
@@ -419,7 +488,7 @@ steps:
       - id: alignment_metrics
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
-    label: picard_collect_alignment_summary_metrics_duplex
+    label: alignment_summary_metrics_duplex
     'sbg:x': 2797.64013671875
     'sbg:y': 1185.375
   - id: picard_collect_alignment_summary_metrics_simplex
@@ -432,7 +501,7 @@ steps:
       - id: alignment_metrics
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
-    label: picard_collect_alignment_summary_metrics_simplex
+    label: alignment_summary_metrics_simplex
     'sbg:x': 2797.64013671875
     'sbg:y': 1064.25
 requirements:
