@@ -260,7 +260,7 @@ outputs:
     'sbg:y': 1865.9375
   - id: unfiltered-bam
     outputSource:
-      - abra_fx_cwl/abra_fx_bam
+      - abra_fx/abra_fx_bam
     type: File
     secondaryFiles:
       - ^.bai
@@ -268,7 +268,7 @@ outputs:
     'sbg:y': 1268.5
   - id: output_file
     outputSource:
-      - abra_fx_cwl/output_file
+      - abra_fx/output_file
     type: File?
     label: indel_realign_targets
     'sbg:x': 2751.59228515625
@@ -501,7 +501,7 @@ steps:
     label: Align Collapsed Fastq and Generate BAM file
     'sbg:x': 1804.53515625
     'sbg:y': 1656.5625
-  - id: abra_fx_cwl
+  - id: abra_fx
     in:
       - id: input_bam
         source:
@@ -535,7 +535,7 @@ steps:
     out:
       - id: abra_fx_bam
       - id: output_file
-    run: subworkflows/abra_fx-cwl.cwl
+    run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
     'sbg:x': 2256.956787109375
     'sbg:y': 1717
