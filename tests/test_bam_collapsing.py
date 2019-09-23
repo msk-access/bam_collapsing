@@ -29,20 +29,22 @@ RESULT_FILE_NAME = [
     "chr14-pileup-without-duplicates.txt",
     "chr14_R1_fastq.gz",
     "chr14_R2_fastq.gz",
-    "chr14_unfiltered_srt_abra_fm-duplex.bai",
-    "chr14_unfiltered_srt_abra_fm-duplex.bam",
-    "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-    "chr14_unfiltered_srt_abra_fm-simplex.bai",
-    "chr14_unfiltered_srt_abra_fm-simplex.bam",
-    "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+    "chr14_unfiltered_srt-duplex.bai",
+    "chr14_unfiltered_srt-duplex.bam",
+    "chr14_unfiltered_srt-duplex_alignment_metrics.txt",
+    "chr14_unfiltered_srt-simplex.bai",
+    "chr14_unfiltered_srt-simplex.bam",
+    "chr14_unfiltered_srt-simplex_alignment_metrics.txt",
     "chr14_unfiltered_srt_abra_fm.bai",
     "chr14_unfiltered_srt_abra_fm.bam",
-    "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+    "chr14_unfiltered_srt_alignment_metrics.txt",
     "collapsed_R1_.fastq",
     "collapsed_R2_.fastq",
     "second-pass-alt-alleles.txt",
     "second-pass-insertions.txt",
+    "chr14_unfiltered_srt.bed",
     "pipeline_result.json",
+    "pytest.log"
 ]
 
 OUTPUT_JSON_FILENAME = "pipeline_result.json"
@@ -93,16 +95,16 @@ def test_check_if_metrics_file_are_same():
     """
     logging.info("### Check if files are the same from alignment metrics calculation ###")
     compare_picard_metrics_files(
-        "chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm_alignment_metrics.txt",
+        "chr14_unfiltered_srt_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt_alignment_metrics.txt",
     )
     compare_picard_metrics_files(
-        "chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-duplex_alignment_metrics.txt",
+        "chr14_unfiltered_srt-duplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt-duplex_alignment_metrics.txt",
     )
     compare_picard_metrics_files(
-        "chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_abra_fm-simplex_alignment_metrics.txt",
+        "chr14_unfiltered_srt-simplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_srt-simplex_alignment_metrics.txt",
     )
 
 
@@ -113,7 +115,7 @@ def test_output_json():
     logging.info("### Check if json file exists and check some basic stats ###")
     assert os.path.exists(OUTPUT_JSON_FILENAME)
     OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
-    assert len(OUTPUT_JSON) == 18
+    assert len(OUTPUT_JSON) == 19
 
 
 def compare_picard_metrics_files(output, expected):
