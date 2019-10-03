@@ -23,6 +23,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.7',
     ],
     description="Collapsing of reads a  aligned to the genome having same unique molecular identifier",
