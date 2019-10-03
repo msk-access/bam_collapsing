@@ -12,5 +12,4 @@ pytest==4.6.5
 pytest-runner==5.1
 coloredlogs==10.0
 pathlib2==2.3.2
-travis-wait-improved==0.0.4
 pytest-travis-fold==1.3.0
