@@ -1,0 +1,8 @@
+[submodule "command_line_tools"]
+	path = command_line_tools
+	url = https://github.com/msk-access/cwl-commandlinetools.git
+	branch = develop
+[submodule "subworkflows"]
+	path = subworkflows
+	url = https://github.com/msk-access/cwl_subworkflows.git
+	branch = develop

@@ -5,15 +5,13 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
+requirements = []
 
-requirements = [ ]
-
-setup_requirements = ['pytest-runner', ]
+setup_requirements = [
+    'pytest-runner', ]
 
 test_requirements = ['pytest', ]
 
@@ -21,16 +19,16 @@ setup(
     author="Ronak Shah",
     author_email='rons.shah@gmail.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 2 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.7',
     ],
     description="Collapsing of reads a  aligned to the genome having same unique molecular identifier",
     install_requires=requirements,
     license="Apache Software License 2.0",
-    long_description=readme + '\n\n' + history,
     include_package_data=True,
     keywords='bam_collapsing',
     name='bam_collapsing',
