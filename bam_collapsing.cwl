@@ -211,7 +211,7 @@ inputs:
     'sbg:x': 0
     'sbg:y': 0
   - id: temporary_directory
-    type: string?
+    type: Directory?
     'sbg:x': 0
     'sbg:y': 213.53125
   - id: read_group_sequencing_center
