@@ -29,20 +29,20 @@ RESULT_FILE_NAME = [
     "chr14-pileup-without-duplicates.txt",
     "chr14_R1_fastq.gz",
     "chr14_R2_fastq.gz",
-    "chr14_unfiltered_srt-duplex.bai",
-    "chr14_unfiltered_srt-duplex.bam",
-    "chr14_unfiltered_srt-duplex_alignment_metrics.txt",
-    "chr14_unfiltered_srt-simplex.bai",
-    "chr14_unfiltered_srt-simplex.bam",
-    "chr14_unfiltered_srt-simplex_alignment_metrics.txt",
-    "chr14_unfiltered_srt_abra_fm.bai",
-    "chr14_unfiltered_srt_abra_fm.bam",
-    "chr14_unfiltered_srt_alignment_metrics.txt",
+    "chr14_unfiltered_abra_fm-duplex.bai",
+    "chr14_unfiltered_abra_fm-duplex.bam",
+    "chr14_unfiltered_abra_fm-duplex_alignment_metrics.txt",
+    "chr14_unfiltered_abra_fm-simplex.bai",
+    "chr14_unfiltered_abra_fm-simplex.bam",
+    "chr14_unfiltered_abra_fm-simplex_alignment_metrics.txt",
+    "chr14_unfiltered_abra_fm.bai",
+    "chr14_unfiltered_abra_fm.bam",
+    "chr14_unfiltered_abra_fm_alignment_metrics.txt",
     "collapsed_R1_.fastq",
     "collapsed_R2_.fastq",
     "second-pass-alt-alleles.txt",
     "second-pass-insertions.txt",
-    "chr14_unfiltered_srt.bed",
+    "chr14_unfiltered.bed",
     "pipeline_result.json",
     "pytest.log"
 ]
@@ -65,6 +65,7 @@ def setup_module():
             "bam_collapsing.cwl",
             "test_bam_collapsing/test_input/inputs.yaml",
         ]
+        logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
         process = subprocess.Popen(
             cmd, stdin=subprocess.PIPE, stdout=json, close_fds=True
         )
@@ -95,16 +96,16 @@ def test_check_if_metrics_file_are_same():
     """
     logging.info("### Check if files are the same from alignment metrics calculation ###")
     compare_picard_metrics_files(
-        "chr14_unfiltered_srt_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt_alignment_metrics.txt",
+        "chr14_unfiltered_abra_fm_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_abra_fm_alignment_metrics.txt",
     )
     compare_picard_metrics_files(
-        "chr14_unfiltered_srt-duplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt-duplex_alignment_metrics.txt",
+        "chr14_unfiltered_abra_fm-duplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_abra_fm-duplex_alignment_metrics.txt",
     )
     compare_picard_metrics_files(
-        "chr14_unfiltered_srt-simplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_srt-simplex_alignment_metrics.txt",
+        "chr14_unfiltered_abra_fm-simplex_alignment_metrics.txt",
+        "test_bam_collapsing/test_output/chr14_unfiltered_abra_fm-simplex_alignment_metrics.txt",
     )
 
 

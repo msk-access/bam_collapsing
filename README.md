@@ -16,17 +16,17 @@ The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed b
 
 ## Features
 
-Given a standard bam file: 
+Given a standard bam file:
 
 1. Generate a pileup using Waltz.
 
 2. Using the pileup with the bam file run Marianas bam collapsing, thus generating collapsed fastq.
-   
-3. Using the collpsed fastq align and indel realign the reads generating unfiltered bam files.
 
-4. Using the unfiltered bam file with help of Marianas seprate them into duplex and simplex bam.
-   
-5. Calcualte alignment metrics for unfiltere, duplex and simplex bam file.
+3. Using the collapsed fastq align and indel realign the reads generating unfiltered bam files.
+
+4. Using the unfiltered bam file with help of Marianas separate them into duplex and simplex bam.
+
+5. Calculate alignment metrics for unfiltered, duplex and simplex bam file.
 
 ## Installation
 
@@ -38,7 +38,7 @@ git clone --depth 50 https://github.com/msk-access/bam_collapsing.git
 
 ## Credits
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-- Cookiecutter: https://github.com/audreyr/cookiecutter
-- `audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+- CMO MSK-ACCESS Informatics Team
+- This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+  - Cookiecutter: https://github.com/audreyr/cookiecutter
+  - `audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
