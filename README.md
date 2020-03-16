@@ -16,7 +16,7 @@ The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed b
 
 ## Features
 
-Given a standard bam file: 
+Given a standard bam file:
 
 1. Generate a pileup using Waltz.
 
