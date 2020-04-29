@@ -9,7 +9,7 @@ twine==2.0.0
 pytest==5.0.1
 pytest-runner==5.1
 toil-ionox0[cwl]==0.0.7
-pytz==2019.2
+pytz==2020.1
 coloredlogs==10.0
 typing==3.7.4
 ruamel.yaml==0.15.77
