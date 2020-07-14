@@ -261,21 +261,6 @@ outputs:
     type: File
     'sbg:x': 686.4918212890625
     'sbg:y': 2025.7734375
-  - id: unfiltered-bam
-    outputSource:
-      - abra_fx/abra_fx_bam
-    type: File
-    secondaryFiles:
-      - ^.bai
-    'sbg:x': 2415.73974609375
-    'sbg:y': 1479.953125
-  - id: output_file
-    outputSource:
-      - abra_fx/output_file
-    type: File?
-    label: indel_realign_targets
-    'sbg:x': 2415.73974609375
-    'sbg:y': 1707.3984375
   - id: first_pass_insertions
     outputSource:
       - marianas_collapsing_first_pass_cwl/first_pass_insertions
@@ -312,22 +297,22 @@ outputs:
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 2721.735107421875
-    'sbg:y': 1426.5859375
+    'sbg:x': 2721
+    'sbg:y': 2010.927734375
   - id: duplex-bam
     outputSource:
       - marianas_separate_bams_1_8_1/duplex-bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 2721.735107421875
-    'sbg:y': 1774.7421875
+    'sbg:x': 2726.75341796875
+    'sbg:y': 1848.7940673828125
   - id: alignment_metrics_unfiltered
     outputSource:
       - picard_collect_alignment_summary_metrics_unfiltered/alignment_metrics
     type: File
-    'sbg:x': 2721.735107421875
-    'sbg:y': 1881.453125
+    'sbg:x': 2707.575439453125
+    'sbg:y': 1192.51123046875
   - id: alignment_metrics_simplex
     outputSource:
       - picard_collect_alignment_summary_metrics_simplex/alignment_metrics
@@ -338,8 +323,20 @@ outputs:
     outputSource:
       - picard_collect_alignment_summary_metrics_duplex/alignment_metrics
     type: File
-    'sbg:x': 3027.73046875
-    'sbg:y': 1707.375
+    'sbg:x': 3027
+    'sbg:y': 1728.095703125
+  - id: bam_1
+    outputSource:
+      - abra_fx/bam
+    type: File
+    'sbg:x': 2394.84912109375
+    'sbg:y': 1399.972900390625
+  - id: output_file
+    outputSource:
+      - abra_fx/output_file
+    type: File?
+    'sbg:x': 2319.140625
+    'sbg:y': 1698.27294921875
 steps:
   - id: waltz_pileupmetrics
     in:
@@ -465,17 +462,6 @@ steps:
     'sbg:y': 1486.9765625
   - id: alignment
     in:
-      - id: reference
-        source: reference_fasta
-      - id: reads
-        source:
-          - gzip_Read1/output_file
-          - gzip_Read2/output_file
-      - id: P
-        default: true
-        source: P
-      - id: M
-        default: true
       - id: read_group_identifier
         source: read_group_identifier
       - id: sort_order
@@ -494,18 +480,29 @@ steps:
         source: read_group_library
       - id: output_file_name
         source: picard_output_file_name
-      - id: output
-        source: aln_output_file_name
       - id: read_group_sequencing_center
         source: read_group_sequencing_center
       - id: temporary_directory
         source: temporary_directory
+      - id: reference
+        source: reference_fasta
+      - id: reads
+        source:
+          - gzip_Read1/output_file
+          - gzip_Read2/output_file
+      - id: P
+        default: true
+        source: P
+      - id: M
+        default: true
+      - id: output
+        source: aln_output_file_name
     out:
       - id: bam
     run: subworkflows/alignment.cwl
     label: Align Collapsed Fastq and Generate BAM file
-    'sbg:x': 1386.576171875
-    'sbg:y': 1707.375
+    'sbg:x': 1656.353271484375
+    'sbg:y': 2099.742919921875
   - id: abra_fx
     in:
       - id: input_bam
@@ -537,19 +534,18 @@ steps:
         source: consensus_sequence
       - id: number_of_threads
         source: abra_collapsing_number_of_threads
-      - id: temporary_directory
-        source: temporary_directory
     out:
-      - id: abra_fx_bam
       - id: output_file
+      - id: bam
     run: subworkflows/abra_fx.cwl
     label: abra_fx.cwl
-    'sbg:x': 1874.360107421875
-    'sbg:y': 1563.03125
+    'sbg:x': 1891.3612060546875
+    'sbg:y': 1746.8502197265625
   - id: marianas_separate_bams_1_8_1
     in:
       - id: input_bam
-        source: abra_fx/abra_fx_bam
+        source:
+          - abra_fx/bam
     out:
       - id: duplex-bam
       - id: simplex-bam
@@ -561,7 +557,8 @@ steps:
   - id: picard_collect_alignment_summary_metrics_unfiltered
     in:
       - id: input
-        source: abra_fx/abra_fx_bam
+        source:
+          - abra_fx/bam
       - id: reference_sequence
         source: reference_fasta
     out:
@@ -569,8 +566,8 @@ steps:
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: alignment_summary_metrics_unflitered
-    'sbg:x': 2415.73974609375
-    'sbg:y': 1593.6640625
+    'sbg:x': 2378.4658203125
+    'sbg:y': 1253.231689453125
   - id: picard_collect_alignment_summary_metrics_duplex
     in:
       - id: input
@@ -582,8 +579,8 @@ steps:
     run: >-
       command_line_tools/picard_collect_alignment_summary_metrics_2.8.1/picard_collect_alignment_summary_metrics_2.8.1.cwl
     label: alignment_summary_metrics_duplex
-    'sbg:x': 2721.735107421875
-    'sbg:y': 1661.03125
+    'sbg:x': 2721
+    'sbg:y': 1682.095703125
   - id: picard_collect_alignment_summary_metrics_simplex
     in:
       - id: input
