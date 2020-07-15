@@ -218,6 +218,30 @@ inputs:
     type: string
     'sbg:x': 0
     'sbg:y': 853.6640625
+  - id: K
+    type: int?
+    doc: BWA - Seed to ensure deterministic alignment results
+    'sbg:x': 1374.2166748046875
+    'sbg:y': 2373.26123046875
+  - id: 'Y'
+    type: boolean?
+    doc: >-
+      BWA - Force soft-clipping rather than default hard-clipping of
+      supplementary alignments
+    'sbg:x': 1573.8609619140625
+    'sbg:y': 1886.9481201171875
+  - id: T
+    type: int?
+    doc: >-
+      BWA - Don’t output alignment with score lower than INT. This option only
+      affects output.
+    'sbg:x': 1176.7662353515625
+    'sbg:y': 2453.7021484375
+  - id: t
+    type: int?
+    doc: BWA - Number of threads
+    'sbg:x': 1143.8577880859375
+    'sbg:y': 2286.23486328125
 outputs:
   - id: second_pass_insertions
     outputSource:
@@ -497,6 +521,14 @@ steps:
         default: true
       - id: output
         source: aln_output_file_name
+      - id: K
+        source: K
+      - id: 'Y'
+        source: 'Y'
+      - id: T
+        source: T
+      - id: t
+        source: t
     out:
       - id: bam
     run: subworkflows/alignment.cwl
@@ -544,8 +576,7 @@ steps:
   - id: marianas_separate_bams_1_8_1
     in:
       - id: input_bam
-        source:
-          - abra_fx/bam
+        source: abra_fx/bam
     out:
       - id: duplex-bam
       - id: simplex-bam
@@ -557,8 +588,7 @@ steps:
   - id: picard_collect_alignment_summary_metrics_unfiltered
     in:
       - id: input
-        source:
-          - abra_fx/bam
+        source: abra_fx/bam
       - id: reference_sequence
         source: reference_fasta
     out:
