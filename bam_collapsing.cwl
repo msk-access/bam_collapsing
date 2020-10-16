@@ -16,467 +16,459 @@ inputs:
     secondaryFiles:
       - ^.bai
     'sbg:x': 0
-    'sbg:y': 2881.265625
+    'sbg:y': 2884.359375
   - id: fgbio_group_reads_by_umi_strategy
     type: string
     'sbg:x': 0
-    'sbg:y': 2027.390625
+    'sbg:y': 2029.734375
   - id: fgbio_group_reads_by_umi_raw_tag
     type: string?
     'sbg:x': 0
-    'sbg:y': 2134.125
+    'sbg:y': 2136.5625
   - id: fgbio_group_reads_by_umi_output_file_name
     type: string?
     'sbg:x': 0
-    'sbg:y': 2347.59375
+    'sbg:y': 2350.21875
   - id: fgbio_group_reads_by_umi_min_umi_length
     type: int?
     'sbg:x': 0
-    'sbg:y': 2454.328125
+    'sbg:y': 2457.046875
   - id: fgbio_group_reads_by_umi_include_non_pf_reads
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 2988
+    'sbg:y': 2991.1875
   - id: fgbio_group_reads_by_umi_family_size_histogram
-    type: string?
+    type: string
     'sbg:x': 0
-    'sbg:y': 3094.734375
+    'sbg:y': 3098.015625
   - id: fgbio_group_reads_by_umi_edits
     type: int?
     'sbg:x': 0
-    'sbg:y': 3201.46875
+    'sbg:y': 3204.84375
   - id: fgbio_group_reads_by_umi_assign_tag
     type: string?
     'sbg:x': 0
-    'sbg:y': 3521.671875
+    'sbg:y': 3525.328125
   - id: fgbio_collect_duplex_seq_metrics_intervals
     type: File?
     'sbg:x': 0
-    'sbg:y': 3628.40625
-  - id: fgbio_group_reads_by_umi_output_prefix
-    type: string
+    'sbg:y': 3632.15625
+  - id: fgbio_collect_duplex_seq_metrics_output_prefix
+    type: string?
     'sbg:x': 0
-    'sbg:y': 2240.859375
-  - id: fgbio_group_reads_by_umi_min_ba_reads
+    'sbg:y': 2243.390625
+  - id: fgbio_collect_duplex_seq_metrics_min_ba_reads
     type: int?
     'sbg:x': 0
-    'sbg:y': 2561.0625
-  - id: fgbio_group_reads_by_umi_min_ab_reads
+    'sbg:y': 2563.875
+  - id: fgbio_collect_duplex_seq_metrics_min_ab_reads
     type: int?
     'sbg:x': 0
-    'sbg:y': 2667.796875
-  - id: fgbio_group_reads_by_umi_mi_tag
+    'sbg:y': 2670.703125
+  - id: fgbio_collect_duplex_seq_metrics_mi_tag
     type: string?
     'sbg:x': 0
-    'sbg:y': 2774.53125
-  - id: fgbio_group_reads_by_umi_duplex_umi_counts
+    'sbg:y': 2777.53125
+  - id: fgbio_collect_duplex_seq_metrics_duplex_umi_counts
+    type: boolean
+    'sbg:x': 0
+    'sbg:y': 3311.671875
+  - id: fgbio_collect_duplex_seq_metrics_description
     type: string?
     'sbg:x': 0
-    'sbg:y': 3308.203125
-  - id: fgbio_group_reads_by_umi_description
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 3414.9375
+    'sbg:y': 3418.5
   - id: fgbio_call_duplex_consensus_reads_trim
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 3735.140625
+    'sbg:y': 3738.984375
   - id: fgbio_call_duplex_consensus_reads_sort_order
     type: string?
     'sbg:x': 0
-    'sbg:y': 3841.875
+    'sbg:y': 3845.8125
   - id: fgbio_call_duplex_consensus_reads_read_name_prefix
     type: string?
     'sbg:x': 0
-    'sbg:y': 3948.609375
+    'sbg:y': 3952.640625
   - id: fgbio_call_duplex_consensus_reads_read_group_id
     type: string?
     'sbg:x': 0
-    'sbg:y': 4055.34375
+    'sbg:y': 4059.46875
   - id: fgbio_call_duplex_consensus_reads_output_file_name
     type: string?
     'sbg:x': 0
-    'sbg:y': 4162.078125
+    'sbg:y': 4166.296875
   - id: fgbio_call_duplex_consensus_reads_min_reads
     type: 'int[]'
     'sbg:x': 0
-    'sbg:y': 4268.8125
+    'sbg:y': 4273.125
   - id: fgbio_call_duplex_consensus_reads_min_input_base_quality
     type: int?
     'sbg:x': 0
-    'sbg:y': 4375.546875
+    'sbg:y': 4379.953125
   - id: fgbio_call_duplex_consensus_reads_max_reads_per_strand
     type: int?
     'sbg:x': 0
-    'sbg:y': 4482.28125
+    'sbg:y': 4486.78125
   - id: fgbio_call_duplex_consensus_reads_error_rate_pre_umi
     type: int?
     'sbg:x': 0
-    'sbg:y': 4589.015625
+    'sbg:y': 4593.609375
   - id: fgbio_call_duplex_consensus_reads_error_rate_post_umi
     type: int?
     'sbg:x': 0
-    'sbg:y': 4695.75
+    'sbg:y': 4700.4375
   - id: reference_sequence
-    type: File?
+    type: File
     secondaryFiles:
       - .fai
-      - .dict
+      - ^.dict
       - .amb
       - .sa
       - .ann
       - .bwt
       - .pac
     'sbg:x': 0
-    'sbg:y': 213.2578125
+    'sbg:y': 213.65625
   - id: validation_stringency
-    type: string?
+    type: string
     'sbg:x': 0
     'sbg:y': 0
   - id: gatk_sam_to_fastq_output_name_unpaired
     type: string?
     'sbg:x': 0
-    'sbg:y': 1386.984375
+    'sbg:y': 1388.765625
   - id: gatk_sam_to_fastq_output_name_R2
-    type: string?
+    type: string
     'sbg:x': 0
-    'sbg:y': 1493.71875
+    'sbg:y': 1495.59375
   - id: gatk_sam_to_fastq_include_non_primary_alignments
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1707.1875
+    'sbg:y': 1709.25
   - id: gatk_sam_to_fastq_include_non_pf_reads
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 1813.921875
+    'sbg:y': 1816.078125
   - id: gatk_sam_to_fastq_output_name_R1
-    type: string?
+    type: string
     'sbg:x': 0
-    'sbg:y': 1600.453125
+    'sbg:y': 1602.421875
   - id: bwa_mem_Y
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 4802.4140625
+    'sbg:y': 4914.09375
   - id: bwa_mem_T
     type: int?
     'sbg:x': 0
-    'sbg:y': 4909.0078125
-  - id: bwa_mem_t
-    type: int?
-    'sbg:x': 0
-    'sbg:y': 5015.6015625
+    'sbg:y': 5020.921875
   - id: sort_order
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 106.6640625
-  - id: bwa_mem_sample_id
     type: string
     'sbg:x': 0
-    'sbg:y': 5122.1953125
+    'sbg:y': 106.828125
   - id: picard_addRG_read_group_sequencing_platform
     type: string
     'sbg:x': 0
-    'sbg:y': 426.515625
+    'sbg:y': 427.3125
   - id: picard_addRG_read_group_sequencing_center
     type: string
     'sbg:x': 0
-    'sbg:y': 533.25
+    'sbg:y': 534.140625
   - id: picard_addRG_read_group_run_date
     type: string?
     'sbg:x': 0
-    'sbg:y': 746.71875
+    'sbg:y': 747.796875
   - id: picard_addRG_read_group_platform_unit
     type: string
     'sbg:x': 0
-    'sbg:y': 853.453125
+    'sbg:y': 854.625
   - id: picard_addRG_read_group_library
     type: string
     'sbg:x': 0
-    'sbg:y': 960.1875
+    'sbg:y': 961.453125
   - id: picard_addRG_read_group_identifier
     type: string
     'sbg:x': 0
-    'sbg:y': 1066.921875
+    'sbg:y': 1068.28125
   - id: picard_addRG_read_group_description
     type: string?
     'sbg:x': 0
-    'sbg:y': 1173.65625
-  - id: bwa_mem_R
-    type: string?
-    'sbg:x': 0
-    'sbg:y': 5228.7890625
+    'sbg:y': 1175.109375
   - id: picard_addRG_output_file_name
     type: string?
     'sbg:x': 0
-    'sbg:y': 1280.3203125
+    'sbg:y': 1281.9375
   - id: bwa_mem_P
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 5335.3828125
+    'sbg:y': 5127.75
   - id: bwa_mem_output
     type: string?
     'sbg:x': 0
-    'sbg:y': 5441.9765625
+    'sbg:y': 5234.578125
   - id: create_bam_index
     type: boolean?
-    'sbg:x': 1052.147216796875
-    'sbg:y': 3106.6484375
+    'sbg:x': 2182.449951171875
+    'sbg:y': 2690.9453125
   - id: bwa_mem_M
     type: boolean?
     'sbg:x': 0
-    'sbg:y': 5548.5703125
+    'sbg:y': 5341.40625
   - id: bwa_mem_K
     type: int?
     'sbg:x': 0
-    'sbg:y': 5655.1640625
+    'sbg:y': 5448.234375
   - id: abra2_window_size
     type: string?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2923.1953125
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2403.6328125
   - id: abra2_soft_clip_contig
     type: string?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3029.859375
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2510.4609375
   - id: abra2_scoring_gap_alignments
     type: string?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3136.59375
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2617.2890625
   - id: picard_fixmate_information_output_file_name
     type: string?
     'sbg:x': 0
-    'sbg:y': 319.8515625
+    'sbg:y': 320.484375
   - id: abra2_output_bams
     type:
       - string
       - type: array
         items: string
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3243.2578125
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2724.1171875
   - id: bedtools_genomecov_option_bedgraph
     type: boolean?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2816.53125
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2296.8046875
   - id: abra2_no_sort
     type: boolean?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3349.8515625
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2830.9453125
   - id: abra2_no_edge_complex_indel
     type: boolean?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3456.515625
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2937.7734375
   - id: abra2_maximum_mixmatch_rate
     type: float?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3563.1796875
+    'sbg:x': 2935.392822265625
+    'sbg:y': 3044.6015625
   - id: abra2_maximum_average_depth
     type: int?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3669.84375
+    'sbg:x': 2935.392822265625
+    'sbg:y': 3151.4296875
   - id: bedtools_merge_distance_between_features
     type: int?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2709.796875
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2189.9765625
   - id: abra2_contig_anchor
     type: string?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3776.578125
+    'sbg:x': 2935.392822265625
+    'sbg:y': 3258.2578125
   - id: abra2_consensus_sequence
     type: boolean?
-    'sbg:x': 1624.7490234375
-    'sbg:y': 3883.2421875
+    'sbg:x': 2935.392822265625
+    'sbg:y': 3365.0859375
   - id: gatk_merge_bam_alignment_output_file_name
     type: string?
     'sbg:x': 0
-    'sbg:y': 1920.65625
+    'sbg:y': 1922.90625
   - id: fgbio_filter_consensus_read_reverse_per_base_tags_simplex_duplex
     type: boolean?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1819.671875
+    'sbg:x': 3377.049072265625
+    'sbg:y': 1762.6640625
   - id: fgbio_filter_consensus_read_reverse_per_base_tags_duplex
     type: boolean?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1926.40625
+    'sbg:x': 3377.049072265625
+    'sbg:y': 1869.4921875
   - id: fgbio_filter_consensus_read_require_single_strand_agreement_simplex_duplex
     type: boolean?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2033.140625
+    'sbg:x': 3377.049072265625
+    'sbg:y': 1976.3203125
   - id: fgbio_filter_consensus_read_require_single_strand_agreement_duplex
     type: boolean?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2139.875
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2083.1484375
   - id: fgbio_filter_consensus_read_max_base_error_rate_duplex
     type: 'float[]?'
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3954.359375
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3899.2265625
   - id: fgbio_filter_consensus_read_max_base_error_rate_simplex_duplex
     type: 'float[]?'
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3847.625
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3792.3984375
   - id: fgbio_filter_consensus_read_max_no_call_fraction_duplex
     type: float?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3740.890625
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3685.5703125
   - id: fgbio_filter_consensus_read_max_read_error_rate_duplex
     type: 'float[]?'
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3527.421875
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3471.9140625
   - id: fgbio_filter_consensus_read_max_no_call_fraction_simplex_duplex
     type: float?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3634.15625
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3578.7421875
   - id: fgbio_filter_consensus_read_max_read_error_rate_simplex_duplex
     type: 'float[]?'
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3420.6875
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3365.0859375
   - id: fgbio_filter_consensus_read_min_base_quality_duplex
     type: int?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3313.953125
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3258.2578125
   - id: fgbio_filter_consensus_read_min_base_quality_simplex_duplex
     type: int?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3207.21875
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3151.4296875
   - id: fgbio_filter_consensus_read_min_mean_base_quality_duplex
     type: int?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 3100.484375
+    'sbg:x': 3377.049072265625
+    'sbg:y': 3044.6015625
   - id: fgbio_filter_consensus_read_min_mean_base_quality_simplex_duplex
     type: int?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2993.75
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2937.7734375
   - id: fgbio_filter_consensus_read_min_reads_duplex
     type: 'int[]'
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2887.015625
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2830.9453125
   - id: fgbio_filter_consensus_read_min_reads_simplex_duplex
     type: 'int[]'
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2780.28125
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2724.1171875
   - id: fgbio_filter_consensus_read_output_file_name_simplex_duplex
-    type: string?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2246.609375
+    type: string
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2189.9765625
   - id: fgbio_filter_consensus_read_output_file_name_simplex_aln_metrics
     type: string?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2353.34375
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2296.8046875
   - id: fgbio_postprocessing_output_file_name_simpex
-    type: string?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1712.9375
+    type: string
+    'sbg:x': 3377.049072265625
+    'sbg:y': 1655.8359375
   - id: fgbio_filter_consensus_read_output_file_name_duplex_aln_metrics
     type: string?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2460.078125
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2403.6328125
   - id: fgbio_filter_consensus_read_output_file_name_duplex
-    type: string?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2566.8125
+    type: string
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2510.4609375
   - id: fgbio_filter_consensus_read_min_simplex_reads
     type: int?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 2673.546875
+    'sbg:x': 3377.049072265625
+    'sbg:y': 2617.2890625
   - id: picard_addRG_read_group_sample_name
     type: string
     'sbg:x': 0
-    'sbg:y': 639.984375
+    'sbg:y': 640.96875
+  - id: bwa_number_of_threads
+    type: int?
+    'sbg:x': 0
+    'sbg:y': 4807.265625
 outputs:
   - id: fgbio_group_reads_by_umi_histogram
     outputSource:
       - fgbio_group_reads_by_umi_1_2_0/fgbio_group_reads_by_umi_histogram
     type: File
-    'sbg:x': 1052.147216796875
-    'sbg:y': 2548.515625
+    'sbg:x': 1052.209716796875
+    'sbg:y': 2498.2890625
   - id: fgbio_collect_duplex_seq_metrics_umi_counts
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_umi_counts
     type: File
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2069.390625
+    'sbg:x': 1624.8115234375
+    'sbg:y': 2510.4609375
   - id: fgbio_collect_duplex_seq_metrics_family_size
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_family_size
     type: File
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2176.125
+    'sbg:x': 1624.8115234375
+    'sbg:y': 2617.2890625
   - id: fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
     type: File
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2282.859375
+    'sbg:x': 1624.8115234375
+    'sbg:y': 2724.1171875
   - id: fgbio_collect_duplex_seq_metrics_duplex_umi_counts
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_umi_counts
     type: File
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2389.59375
+    'sbg:x': 1624.8115234375
+    'sbg:y': 2830.9453125
   - id: fgbio_collect_duplex_seq_metrics_duplex_qc
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_qc
     type: File
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2496.328125
+    'sbg:x': 1624.8115234375
+    'sbg:y': 2937.7734375
   - id: fgbio_collect_duplex_seq_metrics_duplex_family_size
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_family_size
     type: File
-    'sbg:x': 1624.7490234375
-    'sbg:y': 2603.0625
+    'sbg:x': 1624.8115234375
+    'sbg:y': 3044.6015625
   - id: gatk_sam_to_fastq_unpaired_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_unpaired_fastq
     type: File?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1392.734375
+    'sbg:x': 2182.449951171875
+    'sbg:y': 2370.4609375
   - id: gatk_sam_to_fastq_second_end_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_second_end_fastq
     type: File?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1499.46875
+    'sbg:x': 2182.449951171875
+    'sbg:y': 2477.2890625
   - id: gatk_sam_to_fastq_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_fastq
     type: File?
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1606.203125
+    'sbg:x': 2182.449951171875
+    'sbg:y': 2584.1171875
   - id: gatk_collect_alignment_summary_metrics_txt_simplex
     outputSource:
       - fgbio_separate_bams/gatk_collect_alignment_summary_metrics_txt_simplex
     type: File
-    'sbg:x': 3888.024658203125
-    'sbg:y': 2614.078125
+    'sbg:x': 4985.8857421875
+    'sbg:y': 2510.4609375
   - id: gatk_collect_alignment_summary_metrics_txt_duplex
     outputSource:
       - fgbio_separate_bams/gatk_collect_alignment_summary_metrics_txt_duplex
     type: File
-    'sbg:x': 3888.024658203125
-    'sbg:y': 2720.8125
+    'sbg:x': 4985.8857421875
+    'sbg:y': 2617.2890625
   - id: fgbio_postprocessing_simplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_postprocessing_simplex_bam
     type: File
-    'sbg:x': 3888.024658203125
-    'sbg:y': 2827.546875
+    'sbg:x': 4985.8857421875
+    'sbg:y': 2724.1171875
   - id: fgbio_filter_consensus_reads_simplex_duplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_filter_consensus_reads_simplex_duplex_bam
     type: File
-    'sbg:x': 3888.024658203125
-    'sbg:y': 2934.28125
+    'sbg:x': 4985.8857421875
+    'sbg:y': 2830.9453125
   - id: fgbio_filter_consensus_reads_duplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_filter_consensus_reads_duplex_bam
     type: File
-    'sbg:x': 3888.024658203125
-    'sbg:y': 3041.015625
+    'sbg:x': 4985.8857421875
+    'sbg:y': 2937.7734375
 steps:
   - id: fgbio_group_reads_by_umi_1_2_0
     in:
@@ -504,26 +496,26 @@ steps:
     run: >-
       command_line_tools/fgbio_group_reads_by_umi_1.2.0/fgbio_group_reads_by_umi_1.2.0.cwl
     label: fgbio_group_reads_by_umi_1.2.0
-    'sbg:x': 541.703125
-    'sbg:y': 2771.546875
+    'sbg:x': 541.765625
+    'sbg:y': 2668.1171875
   - id: fgbio_collect_duplex_seq_metrics_1_2_0
     in:
       - id: input
         source: fgbio_group_reads_by_umi_1_2_0/fgbio_group_reads_by_umi_bam
       - id: output_prefix
-        source: fgbio_group_reads_by_umi_output_prefix
+        source: fgbio_collect_duplex_seq_metrics_output_prefix
       - id: intervals
         source: fgbio_collect_duplex_seq_metrics_intervals
       - id: description
-        source: fgbio_group_reads_by_umi_description
+        source: fgbio_collect_duplex_seq_metrics_description
       - id: duplex_umi_counts
-        source: fgbio_group_reads_by_umi_duplex_umi_counts
+        source: fgbio_collect_duplex_seq_metrics_duplex_umi_counts
       - id: min_ab_reads
-        source: fgbio_group_reads_by_umi_min_ab_reads
+        source: fgbio_collect_duplex_seq_metrics_min_ab_reads
       - id: min_ba_reads
-        source: fgbio_group_reads_by_umi_min_ba_reads
+        source: fgbio_collect_duplex_seq_metrics_min_ba_reads
       - id: mi_tag
-        source: fgbio_group_reads_by_umi_mi_tag
+        source: fgbio_collect_duplex_seq_metrics_mi_tag
     out:
       - id: fgbio_collect_duplex_seq_metrics_family_size
       - id: fgbio_collect_duplex_seq_metrics_duplex_family_size
@@ -534,8 +526,8 @@ steps:
     run: >-
       command_line_tools/fgbio_collect_duplex_seq_metrics_1.2.0/fgbio_collect_duplex_seq_metrics_1.2.0.cwl
     label: fgbio_collect_duplex_seq_metrics_1.2.0
-    'sbg:x': 1052.147216796875
-    'sbg:y': 2704.25
+    'sbg:x': 1057
+    'sbg:y': 2654
   - id: fgbio_call_duplex_consensus_reads_1_2_0
     in:
       - id: input
@@ -566,15 +558,15 @@ steps:
     run: >-
       command_line_tools/fgbio_call_duplex_consensus_reads_1.2.0/fgbio_call_duplex_consensus_reads_1.2.0.cwl
     label: fgbio_call_duplex_consensus_reads_1.2.0
-    'sbg:x': 1052.147216796875
-    'sbg:y': 2929.984375
+    'sbg:x': 1052.209716796875
+    'sbg:y': 2879.9453125
   - id: gatk_sam_to_fastq_4_1_8_0
     in:
+      - id: fastq
+        source: gatk_sam_to_fastq_output_name_R1
       - id: input
         source: >-
           fgbio_call_duplex_consensus_reads_1_2_0/fgbio_call_duplex_consensus_reads_bam
-      - id: fastq
-        source: gatk_sam_to_fastq_output_name_R1
       - id: include_non_pf_reads
         source: gatk_sam_to_fastq_include_non_pf_reads
       - id: include_non_primary_alignments
@@ -593,8 +585,8 @@ steps:
       - id: gatk_sam_to_fastq_second_end_fastq
     run: command_line_tools/gatk_sam_to_fastq_4.1.8.0/gatk_sam_to_fastq_4.1.8.0.cwl
     label: GATK-SamToFastq
-    'sbg:x': 1624.7490234375
-    'sbg:y': 1722.9921875
+    'sbg:x': 1624.8115234375
+    'sbg:y': 2354.6328125
   - id: alignment
     in:
       - id: create_bam_index
@@ -633,24 +625,20 @@ steps:
         source: bwa_mem_P
       - id: M
         source: bwa_mem_M
-      - id: sample_id
-        source: bwa_mem_sample_id
-      - id: R
-        source: bwa_mem_R
-      - id: t
-        source: bwa_mem_t
       - id: T
         source: bwa_mem_T
       - id: 'Y'
         source: bwa_mem_Y
       - id: K
         source: bwa_mem_K
+      - id: bwa_number_of_threads
+        source: bwa_number_of_threads
     out:
       - id: picard_add_or_replace_read_groups_bam
     run: subworkflows/alignment/alignment.cwl
     label: alignment
-    'sbg:x': 2182.387451171875
-    'sbg:y': 4215.09375
+    'sbg:x': 2182.449951171875
+    'sbg:y': 2937.7734375
   - id: indel_realignment
     in:
       - id: window_size
@@ -668,8 +656,7 @@ steps:
       - id: maximum_average_depth
         source: abra2_maximum_average_depth
       - id: input_bam
-        source:
-          - gatk_merge_bam_alignment_4_1_8_0/gatk_merge_bam_alignment_bam
+        source: gatk_merge_bam_alignment_4_1_8_0/gatk_merge_bam_alignment_bam
       - id: contig_anchor
         source: abra2_contig_anchor
       - id: consensus_sequence
@@ -697,8 +684,8 @@ steps:
       - id: indel_realignment_bam
     run: subworkflows/indel_realignment/indel_realignment.cwl
     label: indel_realignment
-    'sbg:x': 2182.387451171875
-    'sbg:y': 1160
+    'sbg:x': 3377.049072265625
+    'sbg:y': 1423.0078125
   - id: gatk_merge_bam_alignment_4_1_8_0
     in:
       - id: unmapped_bam
@@ -723,8 +710,8 @@ steps:
     run: >-
       command_line_tools/gatk_merge_bam_alignment_4.1.8.0/gatk_merge_bam_alignment_4.1.8.0.cwl
     label: GATK-MergeBamAlignment
-    'sbg:x': 1624.7490234375
-    'sbg:y': 1920.65625
+    'sbg:x': 2935.392822265625
+    'sbg:y': 2041.1484375
   - id: fgbio_separate_bams
     in:
       - id: reference_fasta
@@ -794,11 +781,13 @@ steps:
       - id: fgbio_filter_consensus_reads_simplex_duplex_bam
     run: subworkflows/fgbio_separate_bams/fgbio_separate_bams.cwl
     label: fgbio_separate_bams
-    'sbg:x': 2971.67236328125
-    'sbg:y': 2652.546875
+    'sbg:x': 4069.533447265625
+    'sbg:y': 2549.1171875
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
+  - class: StepInputExpressionRequirement
+  - class: InlineJavascriptRequirement
 $schemas:
   - 'http://schema.org/version/9.0/schemaorg-current-http.rdf'
 's:author':
