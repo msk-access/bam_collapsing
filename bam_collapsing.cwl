@@ -348,7 +348,7 @@ inputs:
     type: string?
     'sbg:x': 2182.449951171875
     'sbg:y': 2317.046875
-  - id: fgbio_postprocessing_output_file_name_simpex
+  - id: fgbio_postprocessing_output_file_name_simplex
     type: string
     'sbg:x': 2182.449951171875
     'sbg:y': 1676.078125
@@ -795,7 +795,7 @@ steps:
       - id: output_file_name_simplex_aln_metrics
         source: fgbio_filter_consensus_read_output_file_name_simplex_aln_metrics
       - id: output_file_name_simpex
-        source: fgbio_postprocessing_output_file_name_simpex
+        source: fgbio_postprocessing_output_file_name_simplex
       - id: min_simplex_reads
         source: fgbio_filter_consensus_read_min_simplex_reads
     out:
