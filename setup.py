@@ -28,6 +28,7 @@ setup(
     description="Collapsing of reads a  aligned to the genome having same unique molecular identifier",
     install_requires=requirements,
     license="Apache Software License 2.0",
+    long_description=readme + '\n\n',
     include_package_data=True,
     keywords='bam_collapsing',
     name='bam_collapsing',
@@ -35,7 +36,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/rhshah/bam_collapsing',
+    url='https://github.com/msk-access/bam_collapsing',
     version='0.1.2',
     zip_safe=False,
 )
