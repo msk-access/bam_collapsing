@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#GoogleDrive: https://drive.google.com/open?id=1huZX5fk0PN1kmo9VEA2H1_9fvY3fEpbb
-fileid='1huZX5fk0PN1kmo9VEA2H1_9fvY3fEpbb'
+#GoogleDrive: https://drive.google.com/file/d/1m610MQurhJ2YH3njkHHOozrfw35ffgSu/view?usp=sharing
+fileid='1m610MQurhJ2YH3njkHHOozrfw35ffgSu'
 
-filename=test_bam_collapsing.tar.gz
+filename=test_fgbio_bam_collapsing.tar.gz
 
 # Skip if already have test data
 [[ -f $filename ]] && exit 0

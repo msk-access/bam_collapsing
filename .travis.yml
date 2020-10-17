@@ -1,7 +1,6 @@
 language: python
 python:
-- 3.7
-- 2.7
+- 3.6
 install: pip install -U tox-travis
 script: travis_wait 120 tox
 deploy:
@@ -15,4 +14,4 @@ deploy:
   on:
     tags: true
     repo: msk-access/bam_collapsing
-    python: 2.7
+    python: 3.6

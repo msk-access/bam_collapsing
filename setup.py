@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = []
+requirements = ['toil[all]==4.2.0', ]
 
 setup_requirements = [
     'pytest-runner', ]
@@ -23,8 +23,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.6',
     ],
     description="Collapsing of reads a  aligned to the genome having same unique molecular identifier",
     install_requires=requirements,
