@@ -13,112 +13,179 @@ $namespaces:
 inputs:
   - id: fgbio_group_reads_by_umi_input
     type: File
+    doc: 'Fgbio GroupReadsByUmi: The input BAM file.'
     secondaryFiles:
       - ^.bai
     'sbg:x': 0
-    'sbg:y': 2563.875
+    'sbg:y': 2561.5
   - id: fgbio_group_reads_by_umi_strategy
     type: string
+    doc: >-
+      Fgbio GroupReadsByUmi: The UMI assignment strategy.(identity, edit,
+      adjacency, paired)
     'sbg:x': 0
-    'sbg:y': 2136.5625
+    'sbg:y': 2134.5
   - id: fgbio_group_reads_by_umi_raw_tag
     type: string?
+    doc: 'Fgbio GroupReadsByUmi: The tag containing the raw UMI. (Default:RX)'
     'sbg:x': 0
-    'sbg:y': 2243.390625
+    'sbg:y': 2241.25
   - id: fgbio_group_reads_by_umi_output_file_name
     type: string?
+    doc: 'Fgbio GroupReadsByUmi: The output BAM file name'
     'sbg:x': 0
-    'sbg:y': 2350.21875
+    'sbg:y': 2348
   - id: fgbio_group_reads_by_umi_min_umi_length
     type: int?
+    doc: >-
+      Fgbio GroupReadsByUmi: The minimum UMI length. If not specified then all
+      UMIs must have the same length, otherwise discard reads with UMIs shorter
+      than this length and allow for differing UMI lengths.
     'sbg:x': 0
-    'sbg:y': 2457.046875
+    'sbg:y': 2454.75
   - id: fgbio_group_reads_by_umi_include_non_pf_reads
     type: boolean?
+    doc: 'Fgbio GroupReadsByUmi: Include non-PF reads.'
     'sbg:x': 0
-    'sbg:y': 2670.703125
+    'sbg:y': 2668.25
   - id: fgbio_group_reads_by_umi_family_size_histogram
     type: string
+    doc: 'Fgbio GroupReadsByUmi: Optional output of tag family size counts.'
     'sbg:x': 0
-    'sbg:y': 2777.53125
+    'sbg:y': 2775
   - id: fgbio_group_reads_by_umi_edits
     type: int?
+    doc: 'Fgbio GroupReadsByUmi:  The allowable number of edits between UMIs.'
     'sbg:x': 0
-    'sbg:y': 2884.359375
+    'sbg:y': 2881.75
   - id: fgbio_group_reads_by_umi_assign_tag
     type: string?
+    doc: 'Fgbio GroupReadsByUmi: The output tag for UMI grouping. (Default:MI)'
     'sbg:x': 0
-    'sbg:y': 2991.1875
+    'sbg:y': 2988.5
   - id: fgbio_collect_duplex_seq_metrics_intervals
     type: File?
+    doc: >-
+      Fgbio CollectDuplexSeqMetrics:  Optional set of intervals over which to
+      restrict analysis.
     'sbg:x': 0
-    'sbg:y': 3525.328125
+    'sbg:y': 3522.25
   - id: fgbio_collect_duplex_seq_metrics_output_prefix
     type: string?
+    doc: 'Fgbio CollectDuplexSeqMetrics: Prefix of output files to write.'
     'sbg:x': 0
-    'sbg:y': 3098.015625
+    'sbg:y': 3095.25
   - id: fgbio_collect_duplex_seq_metrics_min_ba_reads
     type: int?
+    doc: >-
+      Fgbio CollectDuplexSeqMetrics: Minimum BA reads to call a tag family a
+      ‘duplex’.
     'sbg:x': 0
-    'sbg:y': 3204.84375
+    'sbg:y': 3202
   - id: fgbio_collect_duplex_seq_metrics_min_ab_reads
     type: int?
+    doc: >-
+      Fgbio CollectDuplexSeqMetrics: Minimum AB reads to call a tag family a
+      ‘duplex’.
     'sbg:x': 0
-    'sbg:y': 3311.671875
+    'sbg:y': 3308.75
   - id: fgbio_collect_duplex_seq_metrics_mi_tag
     type: string?
+    doc: >-
+      Fgbio CollectDuplexSeqMetrics: The output tag for UMI grouping. (Default:
+      MI)
     'sbg:x': 0
-    'sbg:y': 3418.5
+    'sbg:y': 3415.5
   - id: fgbio_collect_duplex_seq_metrics_duplex_umi_counts
     type: boolean
+    doc: >-
+      Fgbio CollectDuplexSeqMetrics: If true, produce the .duplex_umi_counts.txt
+      file with counts of duplex UMI observations.
     'sbg:x': 0
-    'sbg:y': 3632.15625
+    'sbg:y': 3629
   - id: fgbio_collect_duplex_seq_metrics_description
     type: string?
+    doc: >-
+      Fgbio CollectDuplexSeqMetrics:Description of data set used to label plots.
+      Defaults to sample/library.
     'sbg:x': 0
-    'sbg:y': 3738.984375
+    'sbg:y': 3735.75
   - id: fgbio_call_duplex_consensus_reads_trim
     type: boolean?
+    doc: >-
+      Fgbio CallDuplexConsensusReads : If true, quality trim input reads in
+      addition to masking low Q bases.
     'sbg:x': 0
-    'sbg:y': 3845.8125
+    'sbg:y': 3842.5
   - id: fgbio_call_duplex_consensus_reads_sort_order
     type: string?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: The sort order of the output, if :none:
+      then the same as the input.
     'sbg:x': 0
-    'sbg:y': 3952.640625
+    'sbg:y': 3949.25
   - id: fgbio_call_duplex_consensus_reads_read_name_prefix
     type: string?
+    doc: 'Fgbio CallDuplexConsensusReads: The prefix all consensus read names'
     'sbg:x': 0
-    'sbg:y': 4059.46875
+    'sbg:y': 4056
   - id: fgbio_call_duplex_consensus_reads_read_group_id
     type: string?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: The new read group ID for all the
+      consensus reads.
     'sbg:x': 0
-    'sbg:y': 4166.296875
+    'sbg:y': 4162.75
   - id: fgbio_call_duplex_consensus_reads_output_file_name
     type: string?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: Output SAM or BAM file to write consensus
+      reads.
     'sbg:x': 0
-    'sbg:y': 4273.125
+    'sbg:y': 4269.5
   - id: fgbio_call_duplex_consensus_reads_min_reads
     type: 'int[]'
+    doc: >-
+      Fgbio CallDuplexConsensusReads: The minimum number of input reads to a
+      consensus read.
     'sbg:x': 0
-    'sbg:y': 4379.953125
+    'sbg:y': 4376.25
   - id: fgbio_call_duplex_consensus_reads_min_input_base_quality
     type: int?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: Ignore bases in raw reads that have Q
+      below this value.
     'sbg:x': 0
-    'sbg:y': 4486.78125
+    'sbg:y': 4483
   - id: fgbio_call_duplex_consensus_reads_max_reads_per_strand
     type: int?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: The maximum number of reads to use when
+      building a single-strand consensus. If more than this many reads are
+      present in a tag family, the family is randomly downsampled to exactly
+      max-reads reads.
     'sbg:x': 0
-    'sbg:y': 4593.609375
+    'sbg:y': 4589.75
   - id: fgbio_call_duplex_consensus_reads_error_rate_pre_umi
     type: int?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: The Phred-scaled error rate for an error
+      prior to the UMIs being integrated.
     'sbg:x': 0
-    'sbg:y': 4700.4375
+    'sbg:y': 4696.5
   - id: fgbio_call_duplex_consensus_reads_error_rate_post_umi
     type: int?
+    doc: >-
+      Fgbio CallDuplexConsensusReads: The Phred-scaled error rate for an error
+      post the UMIs have been integrated.
     'sbg:x': 0
-    'sbg:y': 4807.265625
+    'sbg:y': 4803.25
   - id: reference_sequence
     type: File
+    doc: >-
+      Reference sequence file. Please include ".fai", "^.dict", ".amb" , ".sa",
+      ".bwt", ".pac" as secondary files if they are not present in the same
+      location as the ".fasta" file
     secondaryFiles:
       - .fai
       - ^.dict
@@ -128,372 +195,504 @@ inputs:
       - .bwt
       - .pac
     'sbg:x': 0
-    'sbg:y': 213.65625
+    'sbg:y': 213.3125
   - id: validation_stringency
     type: string
+    doc: >-
+      GATK Validation stringency for all SAM files read by this program. Setting
+      stringency to SILENT can improve performance when processing a BAM file in
+      which variable-length data (read, qualities, tags) do not otherwise need
+      to be decoded.
     'sbg:x': 0
     'sbg:y': 0
   - id: gatk_sam_to_fastq_output_name_unpaired
     type: string?
+    doc: 'GATK SamToFastq: unpaired fastq output file name'
     'sbg:x': 0
-    'sbg:y': 1388.765625
+    'sbg:y': 1387.25
   - id: gatk_sam_to_fastq_output_name_R2
     type: string
+    doc: 'GATK SamToFastq: R2 fastq.gz output file name'
     'sbg:x': 0
-    'sbg:y': 1495.59375
+    'sbg:y': 1494
   - id: gatk_sam_to_fastq_include_non_primary_alignments
     type: boolean?
+    doc: >-
+      GATK SamToFastq: If true, include non-primary alignments in the output.
+      Support of non-primary alignments in SamToFastq is not comprehensive, so
+      there may be exceptions if this is set to true and there are paired reads
+      with non-primary alignments.
     'sbg:x': 0
-    'sbg:y': 1709.25
+    'sbg:y': 1707.5
   - id: gatk_sam_to_fastq_include_non_pf_reads
     type: boolean?
+    doc: >-
+      GATK SamToFastq: Include non-PF reads from the SAM file into the output
+      FASTQ files. PF means 'passes filtering'. Reads whose 'not passing quality
+      controls' flag is set are non-PF reads. See GATK Dictionary for more info.
     'sbg:x': 0
-    'sbg:y': 1816.078125
+    'sbg:y': 1814.25
   - id: gatk_sam_to_fastq_output_name_R1
     type: string
+    doc: 'GATK SamToFastq: R1 fastq.gz output file name'
     'sbg:x': 0
-    'sbg:y': 1602.421875
+    'sbg:y': 1600.75
   - id: bwa_mem_Y
     type: boolean?
+    doc: >-
+      bwa mem: to force soft-clipping rather than default hard-clipping of
+      supplementary alignments
     'sbg:x': 0
-    'sbg:y': 5020.921875
+    'sbg:y': 5016.5625
   - id: bwa_mem_T
     type: int?
+    doc: >-
+      bwa mem: Don’t output alignment with score lower than INT. This option
+      only affects output.
     'sbg:x': 0
-    'sbg:y': 5127.75
+    'sbg:y': 5123.1875
   - id: sort_order
     type: string
+    doc: >-
+      GATK-MergeBamAlignment: The order in which the merged reads should be
+      output.
     'sbg:x': 0
-    'sbg:y': 106.828125
+    'sbg:y': 106.6875
   - id: picard_addRG_read_group_sequencing_platform
     type: string
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group platform (e.g. ILLUMINA, SOLID)'
     'sbg:x': 0
-    'sbg:y': 427.3125
+    'sbg:y': 426.625
   - id: picard_addRG_read_group_sequencing_center
     type: string
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group sequencing center name'
     'sbg:x': 0
-    'sbg:y': 534.140625
+    'sbg:y': 533.375
   - id: picard_addRG_read_group_run_date
     type: string?
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group Run date'
     'sbg:x': 0
-    'sbg:y': 747.796875
+    'sbg:y': 746.875
   - id: picard_addRG_read_group_platform_unit
     type: string
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group Platform Unit (eg. run barcode)'
     'sbg:x': 0
-    'sbg:y': 854.625
+    'sbg:y': 853.625
   - id: picard_addRG_read_group_library
     type: string
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group library'
     'sbg:x': 0
-    'sbg:y': 961.453125
+    'sbg:y': 960.375
   - id: picard_addRG_read_group_identifier
     type: string
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group ID'
     'sbg:x': 0
-    'sbg:y': 1068.28125
+    'sbg:y': 1067.125
   - id: picard_addRG_read_group_description
     type: string?
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group Description'
     'sbg:x': 0
-    'sbg:y': 1175.109375
+    'sbg:y': 1173.875
   - id: picard_addRG_output_file_name
     type: string?
+    doc: 'PicardAddOrReplaceReadGroups output file name'
     'sbg:x': 0
-    'sbg:y': 1281.9375
+    'sbg:y': 1280.5625
   - id: bwa_mem_P
     type: boolean?
+    doc: >-
+      bwa mem : In the paired-end mode, perform SW to rescue missing hits only
+      but do not try to find hits that fit a proper pair.
     'sbg:x': 0
-    'sbg:y': 5234.578125
+    'sbg:y': 5229.8125
   - id: bwa_mem_output
     type: string?
+    doc: 'bwa mem: Output SAM file name'
     'sbg:x': 0
-    'sbg:y': 5341.40625
+    'sbg:y': 5336.4375
   - id: create_bam_index
     type: boolean?
-    'sbg:x': 1052.209716796875
-    'sbg:y': 3056.7734375
+    'sbg:x': 1052.194091796875
+    'sbg:y': 3053.9375
   - id: bwa_mem_M
     type: boolean?
+    doc: 'Mark shorter split hits as secondary'
     'sbg:x': 0
-    'sbg:y': 5448.234375
+    'sbg:y': 5443.0625
   - id: bwa_mem_K
     type: int?
+    doc: >-
+      bwa mem : to achieve deterministic alignment results (Note: this is a
+      hidden option)
     'sbg:x': 0
-    'sbg:y': 5555.0625
+    'sbg:y': 5549.6875
   - id: abra2_window_size
     type: string?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2819.53125
+    doc: >-
+      Processing window size and overlap
+      (size,overlap) (default: 400,200)
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2817.0625
   - id: abra2_soft_clip_contig
     type: string?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2926.359375
+    doc: >-
+      Soft clip contig args
+      [max_contigs,min_base_qual,frac_high_qual_bases,min_soft_clip_len]
+      (default:16,13,80,15)
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2923.75
   - id: abra2_scoring_gap_alignments
     type: string?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3033.1875
+    doc: >-
+      Scoring used for contig alignments(match,
+      mismatch_penalty,gap_open_penalty,gap_extend_penalty) (default:8,32,48,1)
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3030.5
   - id: picard_fixmate_information_output_file_name
     type: string?
+    doc: 'PicardFixMateInformaiton: The output file to write to'
     'sbg:x': 0
-    'sbg:y': 320.484375
+    'sbg:y': 319.9375
   - id: abra2_output_bams
     type:
       - string
       - type: array
         items: string
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3140.015625
+    doc: Required list of output sam or bam file (s) separated by comma
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3137.1875
   - id: bedtools_genomecov_option_bedgraph
     type: boolean?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2712.703125
+    doc: >-
+      option flag parameter to choose output file format. -bg refers to bedgraph
+      format
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2710.375
   - id: abra2_no_sort
     type: boolean?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3246.84375
+    doc: 'Do not attempt to sort final output'
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3243.8125
   - id: abra2_no_edge_complex_indel
     type: boolean?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3353.671875
+    doc: 'Prevent output of complex indels at read start or read end'
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3350.5
   - id: abra2_maximum_mixmatch_rate
     type: float?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3460.5
+    doc: >-
+      Max allowed mismatch rate when mapping reads back to contigs (default:
+      0.05)
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3457.1875
   - id: abra2_maximum_average_depth
     type: int?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3567.328125
+    doc: >-
+      Regions with average depth exceeding this value will be downsampled
+      (default: 1000)
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3563.875
   - id: bedtools_merge_distance_between_features
     type: int?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2605.875
+    doc: Maximum distance between features allowed for features to be merged.
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2603.625
   - id: abra2_contig_anchor
     type: string?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3674.15625
+    doc: >-
+      Contig anchor [M_bases_at_contig_edge,max_mismatches_near_edge]
+      (default:10,2)
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3670.625
   - id: abra2_consensus_sequence
     type: boolean?
-    'sbg:x': 1624.8115234375
-    'sbg:y': 3780.984375
+    doc: 'Use positional consensus sequence when aligning high quality soft clipping'
+    'sbg:x': 1624.7958984375
+    'sbg:y': 3777.3125
   - id: gatk_merge_bam_alignment_output_file_name
     type: string?
+    doc: 'GATK MergeBamAlignment: Output File Name'
     'sbg:x': 0
-    'sbg:y': 1922.90625
+    'sbg:y': 1921
   - id: fgbio_filter_consensus_read_reverse_per_base_tags_simplex_duplex
     type: boolean?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1782.90625
+    doc: >-
+      Fgbio FilterConsensusReads: Reverse [complement] per base tags on reverse 
+      strand reads.- Simplex+Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1780.8125
   - id: fgbio_filter_consensus_read_reverse_per_base_tags_duplex
     type: boolean?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1889.734375
+    doc: >-
+      Fgbio FilterConsensusReads: Reverse [complement] per base tags on reverse 
+      strand reads. - Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1887.5625
   - id: fgbio_filter_consensus_read_require_single_strand_agreement_simplex_duplex
     type: boolean?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1996.5625
+    doc: >-
+      Fgbio FilterConsensusReads: Mask (make N) consensus bases where the AB and
+      BA consensus reads disagree (for duplex-sequencing only).
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1994.3125
   - id: fgbio_filter_consensus_read_require_single_strand_agreement_duplex
     type: boolean?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2103.390625
+    doc: >-
+      Fgbio FilterConsensusReads: Mask (make N) consensus bases where the AB and
+      BA consensus reads disagree (for duplex-sequencing only).
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2101.0625
   - id: fgbio_filter_consensus_read_max_base_error_rate_duplex
     type: 'float[]?'
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3919.46875
+    doc: >-
+      Fgbio FilterConsensusReads: The maximum error rate for a single consensus 
+      base. (Max 3 values) - Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3915.8125
   - id: fgbio_filter_consensus_read_max_base_error_rate_simplex_duplex
     type: 'float[]?'
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3812.640625
+    doc: >-
+      Fgbio FilterConsensusReads: The maximum error rate for a single consensus 
+      base. (Max 3 values) - Simplex + Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3809.0625
   - id: fgbio_filter_consensus_read_max_no_call_fraction_duplex
     type: float?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3705.8125
+    doc: >-
+      Fgbio FilterConsensusReads: Maximum fraction of no-calls in the read 
+      after filtering - Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3702.3125
   - id: fgbio_filter_consensus_read_max_read_error_rate_duplex
     type: 'float[]?'
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3492.15625
+    doc: >-
+      Fgbio FilterConsensusReads: The maximum raw-read error rate across the 
+      entire consensus read. (Max 3 values) - Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3488.8125
   - id: fgbio_filter_consensus_read_max_no_call_fraction_simplex_duplex
     type: float?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3598.984375
+    doc: >-
+      Fgbio FilterConsensusReads: Maximum fraction of no-calls in the read 
+      after filtering - Simplex + Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3595.5625
   - id: fgbio_filter_consensus_read_max_read_error_rate_simplex_duplex
     type: 'float[]?'
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3385.328125
+    doc: >-
+      The maximum raw-read error rate across the entire consensus read. (Max 3
+      values) - Simplex + Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3382.0625
   - id: fgbio_filter_consensus_read_min_base_quality_duplex
     type: int?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3278.5
+    doc: >-
+      Fgbio FilterConsensusReads: Mask (make N) consensus bases with quality 
+      less than this threshold. - Dupelx
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3275.3125
   - id: fgbio_filter_consensus_read_min_base_quality_simplex_duplex
     type: int?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3171.671875
+    doc: >-
+      Fgbio FilterConsensusReads: Mask (make N) consensus bases with quality 
+      less than this threshold. - Simplex + Dupelx
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3168.5625
   - id: fgbio_filter_consensus_read_min_mean_base_quality_duplex
     type: int?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 3064.84375
+    doc: >-
+      Fgbio FilterConsensusReads: The minimum mean base quality across the 
+      consensus read - Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 3061.8125
   - id: fgbio_filter_consensus_read_min_mean_base_quality_simplex_duplex
     type: int?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2958.015625
+    doc: >-
+      Fgbio FilterConsensusReads: The minimum mean base quality across the 
+      consensus read - Simplex + Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2955.0625
   - id: fgbio_filter_consensus_read_min_reads_duplex
     type: 'int[]'
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2851.1875
+    doc: >-
+      Fgbio FilterConsensusReads: The minimum number of reads supporting a 
+      consensus base/read. (Max 3 values) - Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2848.3125
   - id: fgbio_filter_consensus_read_min_reads_simplex_duplex
     type: 'int[]'
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2744.359375
+    doc: >-
+      Fgbio FilterConsensusReads: The minimum number of reads supporting a 
+      consensus base/read. (Max 3 values) - Simplex+Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2741.5625
   - id: fgbio_filter_consensus_read_output_file_name_simplex_duplex
     type: string
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2210.21875
+    doc: 'Fgbio FilterConsensusReads: Output file name Simplex + Duplex'
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2207.8125
   - id: fgbio_filter_consensus_read_output_file_name_simplex_aln_metrics
     type: string?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2317.046875
+    doc: 'Fgbio FilterConsensusReads: Output file name Simplex alignment metrics'
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2314.5625
   - id: fgbio_postprocessing_output_file_name_simplex
     type: string
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1676.078125
+    doc: 'Fgbio Postprocessing: Output file name Simplex'
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1674.0625
   - id: fgbio_filter_consensus_read_output_file_name_duplex_aln_metrics
     type: string?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2423.875
+    doc: 'Fgbio FilterConsensusReads: Output file name Duplex alignment metrics'
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2421.3125
   - id: fgbio_filter_consensus_read_output_file_name_duplex
     type: string
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2530.703125
+    doc: 'Fgbio FilterConsensusReads: Output file name Duplex'
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2528.0625
   - id: fgbio_filter_consensus_read_min_simplex_reads
     type: int?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 2637.53125
+    doc: >-
+      Fgbio FilterConsensusReads: The minimum number of reads supporting a 
+      consensus base/read. (Max 3 values) - Simplex+Duplex
+    'sbg:x': 2182.434326171875
+    'sbg:y': 2634.8125
   - id: picard_addRG_read_group_sample_name
     type: string
+    doc: 'PicardAddOrReplaceReadGroups: Read-Group sample name'
     'sbg:x': 0
-    'sbg:y': 640.96875
+    'sbg:y': 640.125
   - id: bwa_number_of_threads
     type: int?
+    doc: 'bwa mem: Number of threads'
     'sbg:x': 0
-    'sbg:y': 4914.09375
+    'sbg:y': 4909.9375
   - id: gatk_collect_alignment_summary_metrics_output_file_name
     type: string?
+    doc: >-
+      GATK CollectAlignmentSummaryMetrics: Output file name for metrics on
+      collapsed BAM (Duplex+Simplex+Singletons)
     'sbg:x': 0
-    'sbg:y': 2029.734375
+    'sbg:y': 2027.75
 outputs:
   - id: fgbio_group_reads_by_umi_histogram
     outputSource:
       - fgbio_group_reads_by_umi_1_2_0/fgbio_group_reads_by_umi_histogram
     type: File
-    'sbg:x': 1052.209716796875
-    'sbg:y': 2498.2890625
+    'sbg:x': 1052.194091796875
+    'sbg:y': 2495.75
   - id: fgbio_collect_duplex_seq_metrics_umi_counts
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_umi_counts
     type: File
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2071.734375
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2069.875
   - id: fgbio_collect_duplex_seq_metrics_family_size
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_family_size
     type: File
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2178.5625
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2176.625
   - id: fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_yield_metrics
     type: File
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2285.390625
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2283.375
   - id: fgbio_collect_duplex_seq_metrics_duplex_umi_counts
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_umi_counts
     type: File
     'sbg:x': 0
-    'sbg:y': 5675.4765625
+    'sbg:y': 5670
   - id: fgbio_collect_duplex_seq_metrics_duplex_qc
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_qc
     type: File
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2392.21875
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2390.125
   - id: fgbio_collect_duplex_seq_metrics_duplex_family_size
     outputSource:
       - >-
         fgbio_collect_duplex_seq_metrics_1_2_0/fgbio_collect_duplex_seq_metrics_duplex_family_size
     type: File
-    'sbg:x': 1624.8115234375
-    'sbg:y': 2499.046875
+    'sbg:x': 1624.7958984375
+    'sbg:y': 2496.875
   - id: gatk_sam_to_fastq_unpaired_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_unpaired_fastq
     type: File?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1355.59375
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1353.8125
   - id: gatk_sam_to_fastq_second_end_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_second_end_fastq
     type: File?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1462.421875
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1460.5625
   - id: gatk_sam_to_fastq_fastq
     outputSource:
       - gatk_sam_to_fastq_4_1_8_0/gatk_sam_to_fastq_fastq
     type: File?
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1569.25
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1567.3125
   - id: gatk_collect_alignment_summary_metrics_txt_simplex
     outputSource:
       - fgbio_separate_bams/gatk_collect_alignment_summary_metrics_txt_simplex
     type: File
-    'sbg:x': 3851.744873046875
-    'sbg:y': 2510.4609375
+    'sbg:x': 3851.7294921875
+    'sbg:y': 2507.9375
   - id: gatk_collect_alignment_summary_metrics_txt_duplex
     outputSource:
       - fgbio_separate_bams/gatk_collect_alignment_summary_metrics_txt_duplex
     type: File
-    'sbg:x': 3851.744873046875
-    'sbg:y': 2617.2890625
+    'sbg:x': 3851.7294921875
+    'sbg:y': 2614.6875
   - id: fgbio_postprocessing_simplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_postprocessing_simplex_bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 3851.744873046875
-    'sbg:y': 2830.9453125
+    'sbg:x': 3851.7294921875
+    'sbg:y': 2828.1875
   - id: fgbio_filter_consensus_reads_simplex_duplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_filter_consensus_reads_simplex_duplex_bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 3851.744873046875
-    'sbg:y': 2937.7734375
+    'sbg:x': 3851.7294921875
+    'sbg:y': 2934.9375
   - id: fgbio_filter_consensus_reads_duplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_filter_consensus_reads_duplex_bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 3851.744873046875
-    'sbg:y': 3044.6015625
+    'sbg:x': 3851.7294921875
+    'sbg:y': 3041.6875
   - id: fgbio_collapsed_bam
     outputSource:
       - indel_realignment/indel_realignment_bam
     type: File
     secondaryFiles:
       - ^.bai
-    'sbg:x': 2935.392822265625
-    'sbg:y': 3059.359375
+    'sbg:x': 2935.377197265625
+    'sbg:y': 3056.5625
   - id: gatk_collect_alignment_summary_metrics_txt_collapsed
     outputSource:
       - >-
         gatk_collect_alignment_summary_metrics_4_1_8_0/gatk_collect_alignment_summary_metrics_txt
     type: File
-    'sbg:x': 3851.744873046875
-    'sbg:y': 2724.1171875
+    'sbg:x': 3851.7294921875
+    'sbg:y': 2721.4375
 steps:
   - id: fgbio_group_reads_by_umi_1_2_0
     in:
@@ -521,8 +720,8 @@ steps:
     run: >-
       command_line_tools/fgbio_group_reads_by_umi_1.2.0/fgbio_group_reads_by_umi_1.2.0.cwl
     label: fgbio_group_reads_by_umi_1.2.0
-    'sbg:x': 541.765625
-    'sbg:y': 2721.53125
+    'sbg:x': 541.75
+    'sbg:y': 2718.8125
   - id: fgbio_collect_duplex_seq_metrics_1_2_0
     in:
       - id: input
@@ -551,8 +750,8 @@ steps:
     run: >-
       command_line_tools/fgbio_collect_duplex_seq_metrics_1.2.0/fgbio_collect_duplex_seq_metrics_1.2.0.cwl
     label: fgbio_collect_duplex_seq_metrics_1.2.0
-    'sbg:x': 1052.209716796875
-    'sbg:y': 2654.1171875
+    'sbg:x': 1052.194091796875
+    'sbg:y': 2651.5
   - id: fgbio_call_duplex_consensus_reads_1_2_0
     in:
       - id: input
@@ -583,8 +782,8 @@ steps:
     run: >-
       command_line_tools/fgbio_call_duplex_consensus_reads_1.2.0/fgbio_call_duplex_consensus_reads_1.2.0.cwl
     label: fgbio_call_duplex_consensus_reads_1.2.0
-    'sbg:x': 1052.209716796875
-    'sbg:y': 2879.9453125
+    'sbg:x': 1052.194091796875
+    'sbg:y': 2877.25
   - id: gatk_sam_to_fastq_4_1_8_0
     in:
       - id: fastq
@@ -610,8 +809,8 @@ steps:
       - id: gatk_sam_to_fastq_second_end_fastq
     run: command_line_tools/gatk_sam_to_fastq_4.1.8.0/gatk_sam_to_fastq_4.1.8.0.cwl
     label: GATK-SamToFastq
-    'sbg:x': 1624.8115234375
-    'sbg:y': 1725.078125
+    'sbg:x': 1624.7958984375
+    'sbg:y': 1723.4375
   - id: alignment
     in:
       - id: create_bam_index
@@ -662,8 +861,8 @@ steps:
       - id: picard_add_or_replace_read_groups_bam
     run: subworkflows/alignment/alignment.cwl
     label: alignment
-    'sbg:x': 2182.449951171875
-    'sbg:y': 4166.296875
+    'sbg:x': 2182.434326171875
+    'sbg:y': 4162.5625
   - id: indel_realignment
     in:
       - id: window_size
@@ -709,8 +908,8 @@ steps:
       - id: indel_realignment_bam
     run: subworkflows/indel_realignment/indel_realignment.cwl
     label: indel_realignment
-    'sbg:x': 2182.449951171875
-    'sbg:y': 1122.765625
+    'sbg:x': 2182.434326171875
+    'sbg:y': 1121.0625
   - id: gatk_merge_bam_alignment_4_1_8_0
     in:
       - id: unmapped_bam
@@ -735,8 +934,8 @@ steps:
     run: >-
       command_line_tools/gatk_merge_bam_alignment_4.1.8.0/gatk_merge_bam_alignment_4.1.8.0.cwl
     label: GATK-MergeBamAlignment
-    'sbg:x': 1624.8115234375
-    'sbg:y': 1922.90625
+    'sbg:x': 1624.7958984375
+    'sbg:y': 1921.125
   - id: fgbio_separate_bams
     in:
       - id: reference_fasta
@@ -806,8 +1005,8 @@ steps:
       - id: gatk_collect_alignment_summary_metrics_txt_simplex
     run: subworkflows/fgbio_separate_bams/fgbio_separate_bams.cwl
     label: fgbio_separate_bams
-    'sbg:x': 2935.392822265625
-    'sbg:y': 2777.53125
+    'sbg:x': 2935.377197265625
+    'sbg:y': 2774.8125
   - id: gatk_collect_alignment_summary_metrics_4_1_8_0
     in:
       - id: input
@@ -821,8 +1020,8 @@ steps:
     run: >-
       command_line_tools/gatk_collect_alignment_summary_metrics_4.1.8.0/gatk_collect_alignment_summary_metrics_4.1.8.0.cwl
     label: GATK-CollectAlignmentSummaryMetrics
-    'sbg:x': 2935.392822265625
-    'sbg:y': 2481.703125
+    'sbg:x': 2935.377197265625
+    'sbg:y': 2479.0625
 requirements:
   - class: SubworkflowFeatureRequirement
   - class: MultipleInputFeatureRequirement
