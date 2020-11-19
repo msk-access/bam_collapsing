@@ -321,9 +321,116 @@ description: Input files and parameters required to run workflow
 
 ## Template inputs file
 
-{% code title="make-template" %}
+{% code title="inputs.json" %}
 ```bash
-cwltool --make-template bam_collapsing.cwl
+{
+    "abra2_consensus_sequence": null,
+    "abra2_contig_anchor": null,
+    "abra2_maximum_average_depth": null,
+    "abra2_maximum_mixmatch_rate": null,
+    "abra2_no_edge_complex_indel": true,
+    "abra2_no_sort": null,
+    "abra2_output_bams": "collapsed_abra.bam",
+    "abra2_scoring_gap_alignments": null,
+    "abra2_soft_clip_contig": null,
+    "abra2_window_size": null,
+    "bedtools_genomecov_option_bedgraph": true,
+    "bedtools_merge_distance_between_features": null,
+    "bwa_mem_K": 1000000,
+    "bwa_mem_M": null,
+    "bwa_mem_P": null,
+    "bwa_mem_T": 30,
+    "bwa_mem_Y": true,
+    "bwa_mem_output": "test_collapsed_alignment.sam",
+    "bwa_number_of_threads": null,
+    "create_bam_index": true,
+    "fgbio_call_duplex_consensus_reads_error_rate_post_umi": null,
+    "fgbio_call_duplex_consensus_reads_error_rate_pre_umi": null,
+    "fgbio_call_duplex_consensus_reads_max_reads_per_strand": null,
+    "fgbio_call_duplex_consensus_reads_min_input_base_quality": null,
+    "fgbio_call_duplex_consensus_reads_min_reads": [
+        1,
+        1,
+        0
+    ],
+    "fgbio_call_duplex_consensus_reads_output_file_name": null,
+    "fgbio_call_duplex_consensus_reads_read_group_id": "test",
+    "fgbio_call_duplex_consensus_reads_read_name_prefix": null,
+    "fgbio_call_duplex_consensus_reads_sort_order": null,
+    "fgbio_call_duplex_consensus_reads_trim": null,
+    "fgbio_collect_duplex_seq_metrics_description": null,
+    "fgbio_collect_duplex_seq_metrics_duplex_umi_counts": true,
+    "fgbio_collect_duplex_seq_metrics_intervals": null,
+    "fgbio_collect_duplex_seq_metrics_mi_tag": null,
+    "fgbio_collect_duplex_seq_metrics_min_ab_reads": null,
+    "fgbio_collect_duplex_seq_metrics_min_ba_reads": null,
+    "fgbio_collect_duplex_seq_metrics_output_prefix": null,
+    "fgbio_filter_consensus_read_max_base_error_rate_duplex": null,
+    "fgbio_filter_consensus_read_max_base_error_rate_simplex_duplex": null,
+    "fgbio_filter_consensus_read_max_no_call_fraction_duplex": null,
+    "fgbio_filter_consensus_read_max_no_call_fraction_simplex_duplex": null,
+    "fgbio_filter_consensus_read_max_read_error_rate_duplex": null,
+    "fgbio_filter_consensus_read_max_read_error_rate_simplex_duplex": null,
+    "fgbio_filter_consensus_read_min_base_quality_duplex": 30,
+    "fgbio_filter_consensus_read_min_base_quality_simplex_duplex": 30,
+    "fgbio_filter_consensus_read_min_mean_base_quality_duplex": null,
+    "fgbio_filter_consensus_read_min_mean_base_quality_simplex_duplex": null,
+    "fgbio_filter_consensus_read_min_reads_duplex": [
+        2,
+        1,
+        1
+    ],
+    "fgbio_filter_consensus_read_min_reads_simplex_duplex": [
+        3,
+        3,
+        0
+    ],
+    "fgbio_filter_consensus_read_min_simplex_reads": null,
+    "fgbio_filter_consensus_read_output_file_name_duplex": "collapsed_duplex.bam",
+    "fgbio_filter_consensus_read_output_file_name_duplex_aln_metrics": null,
+    "fgbio_filter_consensus_read_output_file_name_simplex_aln_metrics": null,
+    "fgbio_filter_consensus_read_output_file_name_simplex_duplex": "collapsed_simplex-duplex.bam",
+    "fgbio_filter_consensus_read_require_single_strand_agreement_duplex": true,
+    "fgbio_filter_consensus_read_require_single_strand_agreement_simplex_duplex": null,
+    "fgbio_filter_consensus_read_reverse_per_base_tags_duplex": true,
+    "fgbio_filter_consensus_read_reverse_per_base_tags_simplex_duplex": true,
+    "fgbio_group_reads_by_umi_assign_tag": null,
+    "fgbio_group_reads_by_umi_edits": null,
+    "fgbio_group_reads_by_umi_family_size_histogram": "group_reads_umi.hist.txt",
+    "fgbio_group_reads_by_umi_include_non_pf_reads": null,
+    "fgbio_group_reads_by_umi_input": {
+        "class": "File",
+        "path": "/Users/shahr2/Documents/test_reference/Uncollapsed_BAM_Generation_Output/test_fx.bam"
+    },
+    "fgbio_group_reads_by_umi_min_umi_length": null,
+    "fgbio_group_reads_by_umi_output_file_name": null,
+    "fgbio_group_reads_by_umi_raw_tag": null,
+    "fgbio_group_reads_by_umi_strategy": "paired",
+    "fgbio_postprocessing_output_file_name_simplex": "collapsed_simplex.bam",
+    "gatk_collect_alignment_summary_metrics_output_file_name": null,
+    "gatk_merge_bam_alignment_output_file_name": null,
+    "gatk_sam_to_fastq_include_non_pf_reads": null,
+    "gatk_sam_to_fastq_include_non_primary_alignments": null,
+    "gatk_sam_to_fastq_output_name_R1": "test_fx_group_cons_R1.fastq.gz",
+    "gatk_sam_to_fastq_output_name_R2": "test_fx_group_cons_R2.fastq.gz",
+    "gatk_sam_to_fastq_output_name_unpaired": null,
+    "picard_addRG_output_file_name": null,
+    "picard_addRG_read_group_description": null,
+    "picard_addRG_read_group_identifier": "test",
+    "picard_addRG_read_group_library": "test",
+    "picard_addRG_read_group_platform_unit": "IDT11",
+    "picard_addRG_read_group_run_date": null,
+    "picard_addRG_read_group_sample_name": "MSKCC",
+    "picard_addRG_read_group_sequencing_center": "ILLUMINA",
+    "picard_addRG_read_group_sequencing_platform": "test",
+    "picard_fixmate_information_output_file_name": "collapsed_fx.bam",
+    "reference_sequence": {
+        "class": "File",
+        "path": "/Users/shahr2/Documents/test_reference/test_uncollapsed_bam_generation/reference/chr14_chr16.fasta"
+    },
+    "sort_order": "coordinate",
+    "validation_stringency": "LENIENT"
+}
 ```
 {% endcode %}
 
