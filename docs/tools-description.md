@@ -12,6 +12,7 @@ description: Tool descriptions and versions for Bam Collapsing workflow
 | [GATK SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0) | **4.1.8.0** |
 | [BWA mem](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bwa_mem_0.7.17) | **0.7.17** |
 | [Picard AddOrReplaceReadGroups](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_add_or_replace_read_groups_4.1.8.1) | **4.1.8.1** |
+| [GATK MergeBamAlignment](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_bam_alignment_4.1.8.0) | **4.1.8.0** |
 | [bedtools genomecov](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_genomecov_v2.28.0_cv2) | **2.28.0\_cv2** |
 | [bedtools merge](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_merge_v2.28.0_cv2) | **2.28.0\_cv2** |
 | [ABRA2](https://github.com/msk-access/cwl-commandlinetools/tree/develop/abra2_2.22) | **2.22** |
