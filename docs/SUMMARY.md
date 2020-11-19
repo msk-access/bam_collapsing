@@ -1,6 +1,6 @@
 # Table of contents
 
-- [Introduction](bam_collapsing.md)
+- [Introduction](Introduction.md)
 - [Quickstart](quickstart.md)
 - [Inputs Description](inputs-description.md)
 - [Tool Descriptions](tools-description.md)
