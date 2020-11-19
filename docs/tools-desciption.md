@@ -2,15 +2,20 @@
 description: Tool descriptions and versions for Bam Collapsing workflow
 ---
 
-# Tools Desciption
+# Tool Descriptions
 
-| Tool | Version |
-| :--- | :--- |
-| [Marianas](https://github.com/mskcc/cwl-commandlinetools/tree/master/marianas_collapsing_first_pass_1.8.1)\*\*\*\* | **1.8.1** |
-| [Waltz PileupMetrics](https://github.com/mskcc/cwl-commandlinetools/tree/master/waltz_pileupmatrices_3.1.1)\*\*\*\* | **1.0** |
-| [BWA mem](https://github.com/mskcc/cwl-commandlinetools/tree/master/bwa_mem_0.7.5a)  | **0.7.5a** |
-| [Picard AddOrReplaceReadGroups](https://github.com/mskcc/cwl-commandlinetools/tree/master/picard_add_or_replace_read_groups_1.96) | **1.96** |
-| [Picard CollectAlignmentSummaryMetrics](https://github.com/mskcc/cwl-commandlinetools/tree/develop/picard_collect_alignment_summary_metrics_2.8.1) | **2.8.1** |
-
-
-
+| Tool                                                                                                                                               | Version        |
+| :------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- |
+| [Fgbio GroupReadsByUmi](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_group_reads_by_umi_1.2.0)                            | **1.2.0**      |
+| [Fgbio CollectDuplexSeqMetrics](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_collect_duplex_seq_metrics_1.2.0)            | **1.2.0**      |
+| [Fgbio CallDuplexConsensusReads](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_call_duplex_consensus_reads_1.2.0)          | **1.2.0**      |
+| [GATK SamToFastq](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_sam_to_fastq_4.1.8.0)                                       | **4.1.8.0**    |
+| [BWA mem](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bwa_mem_0.7.17)                                                          | **0.7.17**     |
+| [Picard AddOrReplaceReadGroups](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_add_or_replace_read_groups_4.1.8.1)         | **4.1.8.1**    |
+| [bedtools genomecov](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_genomecov_v2.28.0_cv2)                               | **2.28.0_cv2** |
+| [bedtools merge](https://github.com/msk-access/cwl-commandlinetools/tree/develop/bedtools_merge_v2.28.0_cv2)                                       | **2.28.0_cv2** |
+| [ABRA2](https://github.com/msk-access/cwl-commandlinetools/tree/develop/abra2_2.22)                                                                | **2.22**       |
+| [Picard FixMateInformation](https://github.com/msk-access/cwl-commandlinetools/tree/develop/picard_fix_mate_information_4.1.8.1)                   | **4.1.8.1**    |
+| [Fgbio FilterConsensusReads](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_filter_consensus_reads_1.2.0)                   | **1.2.0**      |
+| [Fgbio Post-processing](https://github.com/msk-access/cwl-commandlinetools/tree/develop/fgbio_postprocessing_simplex_filter_0.1.8)                 | **0.1.8**      |
+| [Picard CollectAlignmentSummaryMetrics](https://github.com/mskcc/cwl-commandlinetools/tree/develop/picard_collect_alignment_summary_metrics_2.8.1) | **2.8.1**      |

@@ -20,10 +20,10 @@ The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed b
 Given a uncollapsed Unique Molecular Index (UMI) tagged BAM file:
 
 1. Group Reads using UMI and generate a BAM file
-2. Call Duplex Consensus Reads from the BAM and generate unmapped BAM file
-3. Convert unmapped BAM to FASTQ and align and do standard BAM alignment
-4. Merge the unmapped BAM with the aligned BAM this is the collapsed BAM.
-5. Generate Duplex and Simplex BAM files
+2. Call Duplex Consensus Reads from the BAM and generate an unmapped BAM file
+3. Convert unmapped BAM to FASTQ and do standard BAM alignment.
+4. Merge the unmapped BAM with the aligned BAM and this generated the collapsed BAM.
+5. Generate Duplex and Simplex BAM files from the collapsed BAM.
 
 ## Credits
 
