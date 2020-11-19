@@ -12,7 +12,6 @@ $ git submodule init
 
 ```text
 $ pip install toil[cwl]==4.2.0
-
 ```
 
 Note: you may use any CWL executor available, provided it works with your batch system
@@ -54,3 +53,4 @@ $ toil-cwl-runner \
 
 $ cwltool bam\_collapsing.cwl --help
 {% endhint %}
+
