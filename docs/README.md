@@ -13,6 +13,8 @@ The bam collapsing workflow for MSK-ACCESS assay takes in a standard processed b
 * Free software: Apache Software License 2.0
 * Documentation: [https://msk-access.gitbook.io/bam-collapsing](https://msk-access.gitbook.io/bam-collapsing)
 
+![Workflow](.gitbook/assets/fgbio_bam_collapsing.png)
+
 ## Features
 
 Given a uncollapsed Unique Molecular Index \(UMI\) tagged BAM file:
