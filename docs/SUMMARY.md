@@ -3,7 +3,7 @@
 - [Introduction](bam_collapsing.md)
 - [Quickstart](quickstart.md)
 - [Inputs Description](inputs-description.md)
-- [Tools Desciption](tools-desciption.md)
+- [Tool Descriptions](tools-description.md)
 - [Outputs Description](outputs-description.md)
 
 ## Github Specifications
