@@ -34,6 +34,7 @@ RESULT_FILE_NAME = [
     "collapsed_simplex.bam",
     "collapsed_simplex_alignment_summary_metrics.txt",
     "group_reads_umi.hist.txt",
+    "test_fx_group.bam",
     "test_fx_group.duplex_family_sizes.txt",
     "test_fx_group.duplex_umi_counts.txt",
     "test_fx_group.duplex_yield_metrics.txt",
@@ -129,7 +130,7 @@ def test_output_json():
         == "test_fx_group.duplex_yield_metrics.txt"
     )
     assert (
-        output_json["fgbio_collect_duplex_seq_metrics_duplex_umi_counts"]["basename"]
+        output_json["fgbio_collect_duplex_seq_metrics_duplex_umi_counts_txt"]["basename"]
         == "test_fx_group.duplex_umi_counts.txt"
     )
     assert (
