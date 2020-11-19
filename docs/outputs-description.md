@@ -4,10 +4,9 @@ description: Files present after workflow is finished
 
 # Outputs Description
 
-
-
 | Output File | Description |
 | :--- | :--- |
+| **sample\_name-collapsed\_alignment\_summary\_metrics.txt** | Collapsed alignment metrics |
 | **sample\_name-duplex\_alignment\_summary\_metrics.txt** | Collapsed Duplex alignment metrics |
 | **sample\_name-simplex\_alignment\_summary\_metrics.txt** | Collapsed Simplex alignment metrics |
 | **sample\_name-duplex\_family\_sizes.txt** | Duplex Family Size metrics |
@@ -16,6 +15,7 @@ description: Files present after workflow is finished
 | **sample\_name-family\_sizes.txt** | UMI Family Size metrics |
 | **sample\_name-umi\_counts.txt** | UMI Count metrics |
 | **sample\_name-umi.hist.txt** | UMI histogram file |
+| **sample\_name-group.bam** | Grouped BAM for duplex metrics calculation outside of the workflow |
 | **sample\_name-collapsed.bam** | Collapsed bam |
 | **sample\_name-collapsed.bai** | Collapsed bam index |
 | **sample\_name-duplex.bam** | Collapsed Duplex bam |

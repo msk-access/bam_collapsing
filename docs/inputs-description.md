@@ -319,3 +319,13 @@ description: Input files and parameters required to run workflow
 | :---: | :---: | :---: |
 | **gatk\_collect\_alignment\_summary\_metrics\_output\_file\_name** | Output file name for metrics on collapsed BAM \(Duplex+Simplex+Singletons\) |  |
 
+## Template inputs file
+
+{% code title="make-template" %}
+```bash
+cwltool --make-template bam_collapsing.cwl
+```
+{% endcode %}
+
+
+
