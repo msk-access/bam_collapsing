@@ -24,27 +24,25 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level="DEBUG")
 
 RESULT_FILE_NAME = [
-    "chr14-intervals-without-duplicates.txt",
-    "chr14-intervals.txt",
-    "chr14-pileup-without-duplicates.txt",
-    "chr14_R1_fastq.gz",
-    "chr14_R2_fastq.gz",
-    "chr14_unfiltered_abra_fm-duplex.bai",
-    "chr14_unfiltered_abra_fm-duplex.bam",
-    "chr14_unfiltered_abra_fm-duplex_alignment_metrics.txt",
-    "chr14_unfiltered_abra_fm-simplex.bai",
-    "chr14_unfiltered_abra_fm-simplex.bam",
-    "chr14_unfiltered_abra_fm-simplex_alignment_metrics.txt",
-    "chr14_unfiltered_abra_fm.bai",
-    "chr14_unfiltered_abra_fm.bam",
-    "chr14_unfiltered_abra_fm_alignment_metrics.txt",
-    "collapsed_R1_.fastq",
-    "collapsed_R2_.fastq",
-    "second-pass-alt-alleles.txt",
-    "second-pass-insertions.txt",
-    "chr14_unfiltered.bed",
+    "cookie",
+    "collapsed_duplex.bai",
+    "collapsed_duplex.bam",
+    "collapsed_duplex_alignment_summary_metrics.txt",
+    "collapsed_simplex-duplex.bai",
+    "collapsed_simplex-duplex.bam",
+    "collapsed_simplex.bai",
+    "collapsed_simplex.bam",
+    "collapsed_simplex_alignment_summary_metrics.txt",
+    "group_reads_umi.hist.txt",
+    "test_fx_group.duplex_family_sizes.txt",
+    "test_fx_group.duplex_umi_counts.txt",
+    "test_fx_group.duplex_yield_metrics.txt",
+    "test_fx_group.family_sizes.txt",
+    "test_fx_group.umi_counts.txt",
+    "test_fx_group_cons_R1.fastq.gz",
+    "test_fx_group_cons_R2.fastq.gz",
     "pipeline_result.json",
-    "pytest.log"
+    "pytest.log",
 ]
 
 OUTPUT_JSON_FILENAME = "pipeline_result.json"
@@ -63,7 +61,7 @@ def setup_module():
             "--preserve-environment",
             "PATH",
             "bam_collapsing.cwl",
-            "test_bam_collapsing/test_input/inputs.yaml",
+            "test_fgbio_bam_collapsing/inputs/inputs.json",
         ]
         logging.info("setup_module: cmd being executed, %s", " ".join(cmd))
         process = subprocess.Popen(
@@ -94,18 +92,16 @@ def test_check_if_metrics_file_are_same():
     """
     General tests for checking if the metrics file is the same
     """
-    logging.info("### Check if files are the same from alignment metrics calculation ###")
-    compare_picard_metrics_files(
-        "chr14_unfiltered_abra_fm_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_abra_fm_alignment_metrics.txt",
+    logging.info(
+        "### Check if files are the same from alignment metrics calculation ###"
     )
     compare_picard_metrics_files(
-        "chr14_unfiltered_abra_fm-duplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_abra_fm-duplex_alignment_metrics.txt",
+        "collapsed_duplex_alignment_summary_metrics.txt",
+        "test_fgbio_bam_collapsing/outputs/collapsed_duplex_alignment_summary_metrics.txt",
     )
     compare_picard_metrics_files(
-        "chr14_unfiltered_abra_fm-simplex_alignment_metrics.txt",
-        "test_bam_collapsing/test_output/chr14_unfiltered_abra_fm-simplex_alignment_metrics.txt",
+        "collapsed_simplex_alignment_summary_metrics.txt",
+        "test_fgbio_bam_collapsing/outputs/collapsed_simplex_alignment_summary_metrics.txt",
     )
 
 
@@ -115,8 +111,55 @@ def test_output_json():
     """
     logging.info("### Check if json file exists and check some basic stats ###")
     assert os.path.exists(OUTPUT_JSON_FILENAME)
-    OUTPUT_JSON = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
-    assert len(OUTPUT_JSON) == 19
+    output_json = json.loads(open(OUTPUT_JSON_FILENAME, "r").read())
+    assert (
+        output_json["fgbio_group_reads_by_umi_histogram"]["basename"]
+        == "group_reads_umi.hist.txt"
+    )
+    assert (
+        output_json["fgbio_collect_duplex_seq_metrics_umi_counts"]["basename"]
+        == "test_fx_group.umi_counts.txt"
+    )
+    assert (
+        output_json["fgbio_collect_duplex_seq_metrics_family_size"]["basename"]
+        == "test_fx_group.family_sizes.txt"
+    )
+    assert (
+        output_json["fgbio_collect_duplex_seq_metrics_duplex_yield_metrics"]["basename"]
+        == "test_fx_group.duplex_yield_metrics.txt"
+    )
+    assert (
+        output_json["fgbio_collect_duplex_seq_metrics_duplex_umi_counts"]["basename"]
+        == "test_fx_group.duplex_umi_counts.txt"
+    )
+    assert (
+        output_json["fgbio_collect_duplex_seq_metrics_duplex_family_size"]["basename"]
+        == "test_fx_group.duplex_family_sizes.txt"
+    )
+    assert (
+        output_json["gatk_sam_to_fastq_second_end_fastq"]["basename"]
+        == "test_fx_group_cons_R2.fastq.gz"
+    )
+    assert (
+        output_json["gatk_sam_to_fastq_fastq"]["basename"]
+        == "test_fx_group_cons_R1.fastq.gz"
+    )
+    assert (
+        output_json["gatk_collect_alignment_summary_metrics_txt_simplex"]["basename"]
+        == "collapsed_simplex_alignment_summary_metrics.txt"
+    )
+    assert (
+        output_json["gatk_collect_alignment_summary_metrics_txt_duplex"]["basename"]
+        == "collapsed_duplex_alignment_summary_metrics.txt"
+    )
+    assert (
+        output_json["fgbio_postprocessing_simplex_bam"]["basename"]
+        == "collapsed_simplex.bam"
+    )
+    assert (
+        output_json["fgbio_filter_consensus_reads_duplex_bam"]["basename"]
+        == "collapsed_duplex.bam"
+    )
 
 
 def compare_picard_metrics_files(output, expected):
