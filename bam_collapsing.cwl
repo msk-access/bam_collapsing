@@ -254,8 +254,7 @@ inputs:
   - id: sort_order
     type: string
     doc: >-
-      GATK-MergeBamAlignment: The order in which the merged reads should be
-      output.
+      The order in which the merged reads should be output.
     'sbg:x': 0
     'sbg:y': 106.6875
   - id: picard_addRG_read_group_sequencing_platform
