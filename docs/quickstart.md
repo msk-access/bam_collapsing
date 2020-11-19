@@ -11,7 +11,8 @@ $ git submodule init
 ## Step 2: Install Toil and cwltool
 
 ```text
-$ pip install toil-ionox0'[cwl]'==0.0.7
+$ pip install toil[cwl]==4.2.0
+
 ```
 
 Note: you may use any CWL executor available, provided it works with your batch system
@@ -53,4 +54,3 @@ $ toil-cwl-runner \
 
 $ cwltool bam\_collapsing.cwl --help
 {% endhint %}
-
