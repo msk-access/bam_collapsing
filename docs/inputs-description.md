@@ -94,6 +94,7 @@ description: Input files and parameters required to run workflow
 | **picard\_addRG\_read\_group\_identifier** | Read-Group ID |  |
 | **picard\_addRG\_read\_group\_description** | Read-Group Description |  |
 | **picard\_addRG\_output\_file\_name** | Output BAM file name |  |
+| **picard\_addRG\_sort\_order** | Sort order for BAM file |  |
 | **picard\_addRG\_read\_group\_sample\_name** | Read-Group sample name |  |
 
 ### GATK [MergeBamAlignment](https://github.com/msk-access/cwl-commandlinetools/tree/develop/gatk_merge_bam_alignment_4.1.8.0)
@@ -414,6 +415,7 @@ description: Input files and parameters required to run workflow
     "gatk_sam_to_fastq_output_name_R1": "test_fx_group_cons_R1.fastq.gz",
     "gatk_sam_to_fastq_output_name_R2": "test_fx_group_cons_R2.fastq.gz",
     "gatk_sam_to_fastq_output_name_unpaired": null,
+    "picard_addRG_sort_order": "queryname",
     "picard_addRG_output_file_name": null,
     "picard_addRG_read_group_description": null,
     "picard_addRG_read_group_identifier": "test",
