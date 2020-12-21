@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = []
+requirements = ['toil[all]==4.2.0', ]
 
 setup_requirements = [
     'pytest-runner', ]
@@ -23,12 +23,12 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.6',
     ],
     description="Collapsing of reads a  aligned to the genome having same unique molecular identifier",
     install_requires=requirements,
     license="Apache Software License 2.0",
+    long_description=readme + '\n\n',
     include_package_data=True,
     keywords='bam_collapsing',
     name='bam_collapsing',
@@ -36,7 +36,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/rhshah/bam_collapsing',
-    version='0.1.2',
+    url='https://github.com/msk-access/bam_collapsing',
+    version='1.0.0',
     zip_safe=False,
 )
