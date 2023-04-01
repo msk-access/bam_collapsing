@@ -2,7 +2,7 @@ toil[cwl]==5.9.2
 pytz==2023.3
 typing==3.10.0.0
 ruamel.yaml==0.17.21
-pip==20.2.3
+pip==23.0.1
 bumpversion==0.6.0
 wheel==0.35.1
 watchdog==0.10.3
