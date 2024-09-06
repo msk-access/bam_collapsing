@@ -59,8 +59,8 @@ def setup_module():
 
         cmd = [
             "cwltool",
-            "--preserve-environment",
-            "PATH",
+#            "--preserve-environment",
+#            "PATH",
             "bam_collapsing.cwl",
             "test_fgbio_bam_collapsing/inputs/inputs.json",
         ]
