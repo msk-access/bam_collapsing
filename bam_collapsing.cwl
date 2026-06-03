@@ -405,6 +405,16 @@ inputs:
     doc: Use positional consensus sequence when aligning high quality soft clipping
     'sbg:x': 3001.30419921875
     'sbg:y': 3575.3515625
+  - id: abra2_memory_per_job
+    type: int?
+    doc: 'Memory per job for abra2 in megabytes'
+    'sbg:x': 3001.30419921875
+    'sbg:y': 3682.0390625
+  - id: abra2_memory_overhead
+    type: int?
+    doc: 'Memory overhead per job for abra2 in megabytes'
+    'sbg:x': 3001.30419921875
+    'sbg:y': 3788.7265625
   - id: gatk_merge_bam_alignment_output_file_name
     type: string?
     doc: 'GATK MergeBamAlignment: Output File Name'
@@ -932,6 +942,10 @@ steps:
         source: create_bam_index
       - id: temporary_directory
         source: temporary_directory
+      - id: memory_per_job
+        source: abra2_memory_per_job
+      - id: memory_overhead
+        source: abra2_memory_overhead
     out:
       - id: indel_realignment_bam
     run: subworkflows/indel_realignment/indel_realignment.cwl
