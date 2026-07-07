@@ -676,24 +676,18 @@ outputs:
     outputSource:
       - fgbio_separate_bams/fgbio_postprocessing_simplex_bam
     type: File
-    secondaryFiles:
-      - ^.bai
     'sbg:x': 5103.671875
     'sbg:y': 2988.375
   - id: fgbio_filter_consensus_reads_duplex_bam
     outputSource:
       - fgbio_separate_bams/fgbio_filter_consensus_reads_duplex_bam
     type: File
-    secondaryFiles:
-      - ^.bai
     'sbg:x': 5103.671875
     'sbg:y': 3201.84375
   - id: fgbio_collapsed_bam
     outputSource:
       - indel_realignment/indel_realignment_bam
     type: File
-    secondaryFiles:
-      - ^.bai
     'sbg:x': 4160.3173828125
     'sbg:y': 3230.7421875
   - id: gatk_collect_alignment_summary_metrics_txt_collapsed
